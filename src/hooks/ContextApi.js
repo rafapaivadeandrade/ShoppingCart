@@ -1,11 +1,23 @@
 import React, { createContext, useState, useContext } from 'react';
-import axios from 'axios';
-
+import Data from '../assets/products.json';
 const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
+  const [products, setProducts] = useState([]);
+
+  function fetchData() {
+    setProducts(Data);
+  }
+
   return (
-    <ProductContext.Provider value={{}}>{children}</ProductContext.Provider>
+    <ProductContext.Provider
+      value={{
+        fetchData,
+        products,
+      }}
+    >
+      {children}
+    </ProductContext.Provider>
   );
 };
 

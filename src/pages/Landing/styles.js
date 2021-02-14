@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
   width: 100vw;
 `;
 export const Nav = styled.nav`
@@ -106,7 +105,7 @@ export const SortByDiv = styled.div`
   padding-top: 10px;
   display: flex;
   flex-direction: row;
-  width: 350px;
+  width: 450px;
   justify-content: space-between;
 `;
 export const Price = styled.div`
@@ -164,16 +163,15 @@ export const Box = styled.div`
   margin-top: 10px;
 `;
 export const Items = styled.div`
-  background-color: #adc0c4;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  text-align: center;
-  padding-top: 17px;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  color: #ffffff;
-  font-size: 12px;
+  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.2);
+  width: 450px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 15px;
+  margin-top: 10px;
+  flex-direction: row;
 `;
 export const Buttons = styled.div`
   border-radius: 20px;
@@ -190,8 +188,11 @@ export const AddButton = styled.button`
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 150px;
+  width: 200px;
   transition: background-color 1s;
+  margin-left: 120px;
+  margin-top: 20px;
+
   &:hover {
     opacity: 0.8;
     background-color: transparent;
@@ -270,13 +271,50 @@ export const SaveCartLabel = styled.p`
 `;
 export const Footer = styled.footer`
   border-top: 1px solid #e0dde5;
+  position: relative;
   display: flex;
   justify-content: center;
   color: #737373;
   font-size: 15px;
   margin-top: 50px;
-  align-items: center;
   p {
-    margin-top: 20px;
+    padding: 20px 0;
   }
+`;
+export const Image = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+`;
+export const LabelRow = styled.div`
+  display: flex;
+  width: 300px;
+  height: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+  /* margin-top: -50px; */
+`;
+export const ItemRow = styled.div`
+  display: flex;
+  margin-left: 10px;
+  width: 300px;
+  height: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin-top: -20px; */
+`;
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+`;
+export const Label = styled.span`
+  font-size: 15px;
+  color: #737373;
+  /* margin-left: 20px; */
+`;
+export const Item = styled.span`
+  font-size: 15px;
+  color: #737373;
 `;

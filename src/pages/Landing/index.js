@@ -29,13 +29,22 @@ import {
   SaveCart,
   SaveCartLabel,
   Footer,
+  Image,
+  LabelRow,
+  ItemRow,
+  Column,
+  Label,
+  Item,
 } from './styles';
 import { useProduct } from '../../hooks/ContextApi';
 
 function Landing() {
-  const {} = useProduct();
-
-  useState(() => {}, []);
+  const { products, fetchData } = useProduct();
+  const images = require.context('../../assets/images', true);
+  useEffect(() => {
+    fetchData();
+    console.log(products);
+  }, []);
   return (
     <Container>
       <Nav>
@@ -53,7 +62,7 @@ function Landing() {
           </div>
           <div>
             <FourthSpan>
-              Log out <i class="fas fa-arrow-right fa-sm"></i>
+              Log out <i className="fas fa-arrow-right fa-sm"></i>
             </FourthSpan>
           </div>
         </SecondNav>
@@ -64,16 +73,39 @@ function Landing() {
             <strong>Produtos</strong>
           </p>
 
-          <SortByLabel>Sortear por</SortByLabel>
+          <SortByLabel>Sortear por:</SortByLabel>
           <SortByDiv>
             <Price>Preço</Price>
             <Popularidade>Popularidade</Popularidade>
             <OrdemAlfabetica>Ordem Alfabetica</OrdemAlfabetica>
           </SortByDiv>
-          <Box></Box>
-          <Buttons>
-            <AddButton>Adicionar ao Cart</AddButton>
-          </Buttons>
+          <Box>
+            {products.map((product) => {
+              return (
+                <Items key={product.id}>
+                  <Image
+                    src={
+                      require(`../../assets/images/${product.image}`).default
+                    }
+                  />
+                  <Column>
+                    <LabelRow>
+                      <Label>Name:</Label>
+                      <Label>Price:</Label>
+                      <Label>Score:</Label>
+                    </LabelRow>
+                    <ItemRow>
+                      <Item style={{ width: '30px' }}>{product.name}</Item>
+                      <Item>R$:{product.price}</Item>
+                      <Item>{product.score}</Item>
+                    </ItemRow>
+                    <AddButton>Adicionar ao Cart</AddButton>
+                  </Column>
+                </Items>
+              );
+            })}
+          </Box>
+          {/* <Buttons><AddButton>Adicionar ao Cart</AddButton></Buttons> */}
         </Section>
         <Aside>
           <CartContainer>
@@ -96,9 +128,9 @@ function Landing() {
           </CartContainer>
           <SaveCart>
             <SaveCartLabel>
-              Save
+              Salvar
               <span>
-                <i class="fas fa-arrow-right fa-xs"></i>
+                <i className="fas fa-arrow-right fa-xs"></i>
               </span>
             </SaveCartLabel>
           </SaveCart>
