@@ -192,13 +192,25 @@ export const AddButton = styled.button`
   transition: background-color 1s;
   margin-left: 120px;
   margin-top: 20px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
     opacity: 0.8;
     background-color: transparent;
     color: #28c383;
     cursor: pointer;
+    svg {
+      opacity: 0.8;
+      background-color: transparent;
+      color: #28c383;
+    }
   }
+`;
+export const CartImage = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 `;
 export const Aside = styled.aside`
   width: 300px;

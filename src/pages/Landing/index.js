@@ -35,12 +35,13 @@ import {
   Column,
   Label,
   Item,
+  CartImage,
 } from './styles';
 import { useProduct } from '../../hooks/ContextApi';
+import cartIcon from '../../assets/images/icons/cart-icon.svg';
 
 function Landing() {
   const { products, fetchData } = useProduct();
-  const images = require.context('../../assets/images', true);
   useEffect(() => {
     fetchData();
     console.log(products);
@@ -99,7 +100,11 @@ function Landing() {
                       <Item>R$:{product.price}</Item>
                       <Item>{product.score}</Item>
                     </ItemRow>
-                    <AddButton>Adicionar ao Cart</AddButton>
+                    <AddButton>
+                      {' '}
+                      <CartImage src={cartIcon} />{' '}
+                      <span>Adicionar ao Cart</span>
+                    </AddButton>
                   </Column>
                 </Items>
               );
