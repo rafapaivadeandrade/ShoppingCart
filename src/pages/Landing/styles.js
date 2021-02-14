@@ -251,13 +251,13 @@ export const SaveCart = styled.div`
   border-bottom-right-radius: 8px;
   background-color: #f4f4f4;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
   font-size: 40px;
   border: 1px solid #e0dde5;
   height: 24%;
   font-weight: bold;
-  align-items: center;
+  padding: 20px;
 `;
 export const SaveCartLabel = styled.p`
   color: #28c383;

@@ -62,22 +62,22 @@ function Landing() {
     <Container>
       <Nav>
         <FirstNav>
-          <div>
+          <>
             <FirstSpan>Logo</FirstSpan>
-          </div>
-          <div>
+          </>
+          <>
             <SecondSpan>Home</SecondSpan>
-          </div>
+          </>
         </FirstNav>
         <SecondNav>
-          <div>
+          <>
             <ThirdSpan>Conta</ThirdSpan>
-          </div>
-          <div>
+          </>
+          <>
             <FourthSpan>
               Log out <i className="fas fa-arrow-right fa-sm"></i>
             </FourthSpan>
-          </div>
+          </>
         </SecondNav>
       </Nav>
       <Main>
@@ -138,7 +138,6 @@ function Landing() {
               [products]
             )}
           </Box>
-          {/* <Buttons><AddButton>Adicionar ao Cart</AddButton></Buttons> */}
         </Section>
         <Aside>
           <CartContainer>
@@ -166,7 +165,24 @@ function Landing() {
                 </CartItems>
               );
             })}
-
+          </CartContainer>
+          <SaveCart>
+            <Total>
+              <strong>
+                <em>CART</em>
+              </strong>{' '}
+              <TotalLabel>
+                Frete: <span></span>{' '}
+              </TotalLabel>
+            </Total>
+            <Total>
+              <strong>
+                <em>CART</em>
+              </strong>{' '}
+              <TotalLabel>
+                Subtotal: <span></span>{' '}
+              </TotalLabel>
+            </Total>
             <Total>
               <strong>
                 <em>CART</em>
@@ -175,14 +191,6 @@ function Landing() {
                 TOTAL: <span></span>{' '}
               </TotalLabel>
             </Total>
-          </CartContainer>
-          <SaveCart>
-            <SaveCartLabel>
-              Salvar
-              <span>
-                <i className="fas fa-arrow-right fa-xs"></i>
-              </span>
-            </SaveCartLabel>
           </SaveCart>
         </Aside>
       </Main>
