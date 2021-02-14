@@ -41,11 +41,11 @@ import { useProduct } from '../../hooks/ContextApi';
 import cartIcon from '../../assets/images/icons/cart-icon.svg';
 
 function Landing() {
-  const { products, fetchData } = useProduct();
+  const { products, fetchData, sortPrice } = useProduct();
   useEffect(() => {
     fetchData();
-    console.log(products);
   }, []);
+
   return (
     <Container>
       <Nav>
@@ -76,39 +76,51 @@ function Landing() {
 
           <SortByLabel>Sortear por:</SortByLabel>
           <SortByDiv>
-            <Price>Preço</Price>
+            <Price
+              onClick={() => {
+                sortPrice();
+              }}
+            >
+              Preço
+            </Price>
             <Popularidade>Popularidade</Popularidade>
             <OrdemAlfabetica>Ordem Alfabetica</OrdemAlfabetica>
           </SortByDiv>
           <Box>
-            {products.map((product) => {
-              return (
-                <Items key={product.id}>
-                  <Image
-                    src={
-                      require(`../../assets/images/${product.image}`).default
-                    }
-                  />
-                  <Column>
-                    <LabelRow>
-                      <Label>Name:</Label>
-                      <Label>Price:</Label>
-                      <Label>Score:</Label>
-                    </LabelRow>
-                    <ItemRow>
-                      <Item style={{ width: '30px' }}>{product.name}</Item>
-                      <Item>R$:{product.price}</Item>
-                      <Item>{product.score}</Item>
-                    </ItemRow>
-                    <AddButton>
-                      {' '}
-                      <CartImage src={cartIcon} />{' '}
-                      <span>Adicionar ao Cart</span>
-                    </AddButton>
-                  </Column>
-                </Items>
-              );
-            })}
+            {products.map(
+              (product) => {
+                return (
+                  <Items key={product.id}>
+                    <Image
+                      src={
+                        require(`../../assets/images/${product.image}`).default
+                      }
+                    />
+                    <Column>
+                      <LabelRow>
+                        <Label>Name:</Label>
+                        <Label>Price:</Label>
+                        <Label>Score:</Label>
+                      </LabelRow>
+                      <ItemRow>
+                        <Item style={{ width: '30px' }}>{product.name}</Item>
+                        <Item>R$:{product.price}</Item>
+                        <Item>{product.score}</Item>
+                      </ItemRow>
+                      <AddButton
+                        onClick={() => {
+                          console.log('add ao cart');
+                        }}
+                      >
+                        <CartImage src={cartIcon} />{' '}
+                        <span>Adicionar ao Cart</span>
+                      </AddButton>
+                    </Column>
+                  </Items>
+                );
+              },
+              [products]
+            )}
           </Box>
           {/* <Buttons><AddButton>Adicionar ao Cart</AddButton></Buttons> */}
         </Section>
