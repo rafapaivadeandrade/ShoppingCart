@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Container,
   Nav,
@@ -42,6 +42,7 @@ import {
 } from './styles';
 import { useProduct } from '../../hooks/ContextApi';
 import cartIcon from '../../assets/images/icons/cart-icon.svg';
+import NumberFormat from 'react-number-format';
 
 function Landing() {
   const {
@@ -53,6 +54,9 @@ function Landing() {
     addToCart,
     cart,
     removeFromCart,
+    freteCalculated,
+    subTotalCalculated,
+    totalCalculated,
   } = useProduct();
   useEffect(() => {
     fetchData();
@@ -140,13 +144,13 @@ function Landing() {
           </Box>
         </Section>
         <Aside>
+          <CartTitle>
+            <em>CART</em>
+          </CartTitle>
           <CartContainer>
-            <CartTitle>
-              <em>CART</em>
-            </CartTitle>
             {cart.map((cartItem) => {
               return (
-                <CartItems>
+                <CartItems key={cartItem.id}>
                   <i
                     className="far fa-trash-alt"
                     onClick={() => {
@@ -170,9 +174,21 @@ function Landing() {
             <Total>
               <strong>
                 <em>CART</em>
-              </strong>{' '}
+              </strong>
               <TotalLabel>
-                Frete: <span></span>{' '}
+                Frete:
+                {cart.length > 0 && (
+                  <>
+                    <span>
+                      <NumberFormat
+                        value={freteCalculated.current}
+                        displayType={'text'}
+                        thousandSeparator={true}
+                        prefix={'R$ '}
+                      />
+                    </span>
+                  </>
+                )}
               </TotalLabel>
             </Total>
             <Total>
@@ -180,7 +196,19 @@ function Landing() {
                 <em>CART</em>
               </strong>{' '}
               <TotalLabel>
-                Subtotal: <span></span>{' '}
+                Subtotal:
+                {cart.length > 0 && (
+                  <>
+                    <span>
+                      <NumberFormat
+                        value={subTotalCalculated.current.toFixed(2)}
+                        displayType={'text'}
+                        thousandSeparator={true}
+                        prefix={'R$ '}
+                      />
+                    </span>{' '}
+                  </>
+                )}
               </TotalLabel>
             </Total>
             <Total>
@@ -188,7 +216,19 @@ function Landing() {
                 <em>CART</em>
               </strong>{' '}
               <TotalLabel>
-                TOTAL: <span></span>{' '}
+                TOTAL:
+                {cart.length > 0 && (
+                  <>
+                    <span>
+                      <NumberFormat
+                        value={totalCalculated.current.toFixed(2)}
+                        displayType={'text'}
+                        thousandSeparator={true}
+                        prefix={'R$ '}
+                      />
+                    </span>{' '}
+                  </>
+                )}
               </TotalLabel>
             </Total>
           </SaveCart>

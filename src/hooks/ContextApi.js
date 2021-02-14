@@ -1,10 +1,20 @@
-import React, { createContext, useState, useContext, useCallback } from 'react';
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useCallback,
+  useRef,
+} from 'react';
 import Data from '../assets/products.json';
 const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  let freteCalculated = useRef(0);
+  let subTotalCalculated = useRef(0);
+  let totalCalculated = useRef(0);
+  let isFreteFree = false;
 
   const fetchData = useCallback(() => {
     setProducts(Data);
@@ -30,17 +40,43 @@ export const ProductProvider = ({ children }) => {
     });
     setProducts(product);
   }
-  function addToCart(product) {
+  async function addToCart(product) {
     setCart((previousProduct) => {
       return [...previousProduct, product];
     });
-    console.log(cart);
+
+    calculateFrete(product.price);
+    calculateSubTotal(product.price);
+    calculateTotal();
   }
   function removeFromCart(product) {
     setCart((previousProduct) => {
       return previousProduct.filter((prev) => prev.id !== product.id);
     });
-    console.log(cart);
+
+    freteCalculated.current <= 0
+      ? (freteCalculated.current = 10 * [cart.length - 1])
+      : (freteCalculated.current -= 10);
+
+    subTotalCalculated.current = subTotalCalculated.current - product.price;
+
+    totalCalculated.current =
+      subTotalCalculated.current + freteCalculated.current;
+  }
+  function calculateFrete() {
+    Math.round(Number(subTotalCalculated.current)) >= 250
+      ? (freteCalculated.current = 0)
+      : (freteCalculated.current += 10);
+  }
+  function calculateSubTotal(productPrice) {
+    subTotalCalculated.current += productPrice;
+    if (Math.round(subTotalCalculated.current) >= 250) {
+      freteCalculated.current = 0;
+    }
+  }
+  function calculateTotal() {
+    totalCalculated.current =
+      subTotalCalculated.current + freteCalculated.current;
   }
   return (
     <ProductContext.Provider
@@ -54,6 +90,9 @@ export const ProductProvider = ({ children }) => {
         addToCart,
         cart,
         removeFromCart,
+        freteCalculated,
+        subTotalCalculated,
+        totalCalculated,
       }}
     >
       {children}
