@@ -16,31 +16,15 @@ import {
   Popularidade,
   OrdemAlfabetica,
   Box,
-  Items,
-  Buttons,
-  AddButton,
   Aside,
   CartContainer,
   CartTitle,
   Total,
   TotalLabel,
-  CartItems,
-  CartBorder,
   SaveCart,
   Footer,
-  Image,
-  LabelRow,
-  ItemRow,
-  Column,
-  Label,
-  Item,
-  CartImage,
-  CartDetails,
-  CartName,
-  CartPrice,
 } from './styles';
 import { useProduct } from '../../hooks/ContextApi';
-import cartIcon from '../../assets/images/icons/cart-icon.svg';
 import NumberFormat from 'react-number-format';
 import CartDetail from '../../components/CartDetails/index';
 import ItemsData from '../../components/Items/index';
@@ -53,9 +37,7 @@ function Landing() {
     sortPrice,
     sortPopularity,
     sortAlphabeticalOrder,
-    addToCart,
     cart,
-    removeFromCart,
     totalCalculated,
   } = useProduct();
   useEffect(() => {
