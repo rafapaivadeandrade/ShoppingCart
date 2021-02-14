@@ -42,7 +42,8 @@ import {
 import { useProduct } from '../../hooks/ContextApi';
 import cartIcon from '../../assets/images/icons/cart-icon.svg';
 import NumberFormat from 'react-number-format';
-import ItemDetails from '../../components/ItemDetails/index';
+import CartDetail from '../../components/CartDetails/index';
+import ItemsData from '../../components/Items/index';
 
 function Landing() {
   const {
@@ -54,8 +55,6 @@ function Landing() {
     addToCart,
     cart,
     removeFromCart,
-    freteCalculated,
-    subTotalCalculated,
     totalCalculated,
   } = useProduct();
   useEffect(() => {
@@ -66,22 +65,14 @@ function Landing() {
     <Container>
       <Nav>
         <FirstNav>
-          <>
-            <FirstSpan>Logo</FirstSpan>
-          </>
-          <>
-            <SecondSpan>Home</SecondSpan>
-          </>
+          <FirstSpan>Logo</FirstSpan>
+          <SecondSpan>Home</SecondSpan>
         </FirstNav>
         <SecondNav>
-          <>
-            <ThirdSpan>Conta</ThirdSpan>
-          </>
-          <>
-            <FourthSpan>
-              Log out <i className="fas fa-arrow-right fa-sm"></i>
-            </FourthSpan>
-          </>
+          <ThirdSpan>Conta</ThirdSpan>
+          <FourthSpan>
+            Log out <i className="fas fa-arrow-right fa-sm"></i>
+          </FourthSpan>
         </SecondNav>
       </Nav>
       <Main>
@@ -107,40 +98,9 @@ function Landing() {
             </OrdemAlfabetica>
           </SortByDiv>
           <Box>
-            {products.map(
-              (product) => {
-                return (
-                  <Items key={product.id}>
-                    <Image
-                      src={
-                        require(`../../assets/images/${product.image}`).default
-                      }
-                    />
-                    <Column>
-                      <LabelRow>
-                        <Label>Name:</Label>
-                        <Label>Price:</Label>
-                        <Label>Score:</Label>
-                      </LabelRow>
-                      <ItemRow>
-                        <Item style={{ width: '30px' }}>{product.name}</Item>
-                        <Item>R$:{product.price}</Item>
-                        <Item>{product.score}</Item>
-                      </ItemRow>
-                      <AddButton
-                        onClick={() => {
-                          addToCart(product);
-                        }}
-                      >
-                        <CartImage src={cartIcon} />{' '}
-                        <span>Adicionar ao Cart</span>
-                      </AddButton>
-                    </Column>
-                  </Items>
-                );
-              },
-              [products]
-            )}
+            {products.map((product) => {
+              return <ItemsData key={product.id} product={product} />;
+            })}
           </Box>
         </Section>
         <Aside>
@@ -191,7 +151,7 @@ function Landing() {
                 )}
               </TotalLabel>
             </Total>
-            <ItemDetails />
+            <CartDetail />
           </SaveCart>
         </Aside>
       </Main>

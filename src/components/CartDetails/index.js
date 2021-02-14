@@ -5,7 +5,7 @@ import NumberFormat from 'react-number-format';
 import { useProduct } from '../../hooks/ContextApi';
 import arrowDown from '../../assets/images/icons/arrow-down-icon.svg';
 
-function ItemDetails() {
+function CartDetail() {
   const [open, setOpen] = useState(false);
   const { cart, freteCalculated, subTotalCalculated } = useProduct();
 
@@ -66,4 +66,4 @@ function ItemDetails() {
     </div>
   );
 }
-export default ItemDetails;
+export default CartDetail;
