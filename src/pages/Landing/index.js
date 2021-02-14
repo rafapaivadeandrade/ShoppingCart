@@ -44,6 +44,7 @@ import cartIcon from '../../assets/images/icons/cart-icon.svg';
 import NumberFormat from 'react-number-format';
 import CartDetail from '../../components/CartDetails/index';
 import ItemsData from '../../components/Items/index';
+import Cart from '../../components/Cart/index';
 
 function Landing() {
   const {
@@ -109,25 +110,7 @@ function Landing() {
           </CartTitle>
           <CartContainer>
             {cart.map((cartItem) => {
-              return (
-                <CartItems key={cartItem.id}>
-                  <i
-                    className="far fa-trash-alt"
-                    onClick={() => {
-                      removeFromCart(cartItem);
-                    }}
-                  ></i>
-                  <CartBorder></CartBorder>
-                  <CartDetails>
-                    <CartName>
-                      <Item style={{ width: '180px' }}>{cartItem.name}</Item>
-                    </CartName>
-                    <CartPrice>
-                      <Item>R$:{cartItem.price}</Item>
-                    </CartPrice>
-                  </CartDetails>
-                </CartItems>
-              );
+              return <Cart key={cartItem.id} cartItem={cartItem} />;
             })}
           </CartContainer>
           <SaveCart>
