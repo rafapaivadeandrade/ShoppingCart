@@ -36,12 +36,23 @@ import {
   Label,
   Item,
   CartImage,
+  CartDetails,
+  CartName,
+  CartPrice,
 } from './styles';
 import { useProduct } from '../../hooks/ContextApi';
 import cartIcon from '../../assets/images/icons/cart-icon.svg';
 
 function Landing() {
-  const { products, fetchData, sortPrice } = useProduct();
+  const {
+    products,
+    fetchData,
+    sortPrice,
+    sortPopularity,
+    sortAlphabeticalOrder,
+    addToCart,
+    cart,
+  } = useProduct();
   useEffect(() => {
     fetchData();
   }, []);
@@ -83,8 +94,12 @@ function Landing() {
             >
               Preço
             </Price>
-            <Popularidade>Popularidade</Popularidade>
-            <OrdemAlfabetica>Ordem Alfabetica</OrdemAlfabetica>
+            <Popularidade onClick={() => sortPopularity()}>
+              Popularidade
+            </Popularidade>
+            <OrdemAlfabetica onClick={() => sortAlphabeticalOrder()}>
+              Ordem Alfabetica
+            </OrdemAlfabetica>
           </SortByDiv>
           <Box>
             {products.map(
@@ -109,7 +124,7 @@ function Landing() {
                       </ItemRow>
                       <AddButton
                         onClick={() => {
-                          console.log('add ao cart');
+                          addToCart(product);
                         }}
                       >
                         <CartImage src={cartIcon} />{' '}
@@ -129,10 +144,22 @@ function Landing() {
             <CartTitle>
               <em>CART</em>
             </CartTitle>
-            <CartItems>
-              <i className="far fa-trash-alt"></i>
-              <CartBorder></CartBorder>
-            </CartItems>
+            {cart.map((cartItem) => {
+              return (
+                <CartItems>
+                  <i className="far fa-trash-alt"></i>
+                  <CartBorder></CartBorder>
+                  <CartDetails>
+                    <CartName>
+                      <Item style={{ width: '180px' }}>{cartItem.name}</Item>
+                    </CartName>
+                    <CartPrice>
+                      <Item>R$:{cartItem.price}</Item>
+                    </CartPrice>
+                  </CartDetails>
+                </CartItems>
+              );
+            })}
 
             <Total>
               <strong>

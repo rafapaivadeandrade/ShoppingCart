@@ -227,8 +227,10 @@ export const CartContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   border: 1px solid #e0dde5;
+  overflow-y: auto;
 `;
 export const CartTitle = styled.p`
+  margin-top: 10px;
   font-size: 20px;
   font-weight: bold;
   color: #737373;
@@ -243,24 +245,7 @@ export const TotalLabel = styled.p`
   text-indent: 5px;
   font-size: 20px;
 `;
-export const CartItems = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 300px;
-  height: 90px;
-  margin-bottom: 5px;
 
-  i {
-    font-size: 15px;
-    cursor: pointer;
-  }
-`;
-export const CartBorder = styled.div`
-  height: 60px;
-  width: 3px;
-`;
 export const SaveCart = styled.div`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -324,9 +309,40 @@ export const Column = styled.div`
 export const Label = styled.span`
   font-size: 15px;
   color: #737373;
-  /* margin-left: 20px; */
 `;
 export const Item = styled.span`
   font-size: 15px;
   color: #737373;
+`;
+export const CartDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50px;
+`;
+export const CartName = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const CartPrice = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const CartItems = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 220px;
+  height: 90px;
+  margin-bottom: 5px;
+  i {
+    font-size: 15px;
+    cursor: pointer;
+  }
+`;
+export const CartBorder = styled.div`
+  height: 60px;
+  width: 3px;
+  background-color: #01ac66;
 `;

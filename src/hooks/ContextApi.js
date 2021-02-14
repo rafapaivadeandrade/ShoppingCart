@@ -4,16 +4,37 @@ const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const fetchData = useCallback(() => {
     setProducts(Data);
   }, [products]);
+
   async function sortPrice() {
-    console.log('sort');
     const product = [...products].sort((a, b) => {
       return a.price < b.price ? -1 : 1;
     });
     setProducts(product);
+  }
+
+  async function sortPopularity() {
+    const product = [...products].sort((a, b) => {
+      return a.score < b.score ? -1 : 1;
+    });
+    setProducts(product);
+  }
+
+  async function sortAlphabeticalOrder() {
+    const product = [...products].sort((a, b) => {
+      return a.name < b.name ? -1 : 1;
+    });
+    setProducts(product);
+  }
+  function addToCart(product) {
+    setCart((previousProduct) => {
+      return [...previousProduct, product];
+    });
+    console.log(cart);
   }
   return (
     <ProductContext.Provider
@@ -22,6 +43,10 @@ export const ProductProvider = ({ children }) => {
         products,
         setProducts,
         sortPrice,
+        sortPopularity,
+        sortAlphabeticalOrder,
+        addToCart,
+        cart,
       }}
     >
       {children}
