@@ -36,6 +36,12 @@ export const ProductProvider = ({ children }) => {
     });
     console.log(cart);
   }
+  function removeFromCart(product) {
+    setCart((previousProduct) => {
+      return previousProduct.filter((prev) => prev.id !== product.id);
+    });
+    console.log(cart);
+  }
   return (
     <ProductContext.Provider
       value={{
@@ -47,6 +53,7 @@ export const ProductProvider = ({ children }) => {
         sortAlphabeticalOrder,
         addToCart,
         cart,
+        removeFromCart,
       }}
     >
       {children}

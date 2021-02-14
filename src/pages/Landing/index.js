@@ -52,6 +52,7 @@ function Landing() {
     sortAlphabeticalOrder,
     addToCart,
     cart,
+    removeFromCart,
   } = useProduct();
   useEffect(() => {
     fetchData();
@@ -98,7 +99,7 @@ function Landing() {
               Popularidade
             </Popularidade>
             <OrdemAlfabetica onClick={() => sortAlphabeticalOrder()}>
-              Ordem Alfabetica
+              Ordem Alfabética
             </OrdemAlfabetica>
           </SortByDiv>
           <Box>
@@ -147,7 +148,12 @@ function Landing() {
             {cart.map((cartItem) => {
               return (
                 <CartItems>
-                  <i className="far fa-trash-alt"></i>
+                  <i
+                    className="far fa-trash-alt"
+                    onClick={() => {
+                      removeFromCart(cartItem);
+                    }}
+                  ></i>
                   <CartBorder></CartBorder>
                   <CartDetails>
                     <CartName>
