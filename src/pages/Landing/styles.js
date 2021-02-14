@@ -212,6 +212,11 @@ export const CartImage = styled.img`
   height: 20px;
   margin-right: 10px;
 `;
+export const ArrowImage = styled.img`
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+`;
 export const Aside = styled.aside`
   width: 300px;
   height: 400px;
@@ -253,9 +258,8 @@ export const SaveCart = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 40px;
   border: 1px solid #e0dde5;
-  height: 24%;
+  height: 50%;
   font-weight: bold;
   padding: 20px;
 `;

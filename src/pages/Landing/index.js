@@ -27,7 +27,6 @@ import {
   CartItems,
   CartBorder,
   SaveCart,
-  SaveCartLabel,
   Footer,
   Image,
   LabelRow,
@@ -43,6 +42,7 @@ import {
 import { useProduct } from '../../hooks/ContextApi';
 import cartIcon from '../../assets/images/icons/cart-icon.svg';
 import NumberFormat from 'react-number-format';
+import ItemDetails from '../../components/ItemDetails/index';
 
 function Landing() {
   const {
@@ -174,46 +174,6 @@ function Landing() {
             <Total>
               <strong>
                 <em>CART</em>
-              </strong>
-              <TotalLabel>
-                Frete:
-                {cart.length > 0 && (
-                  <>
-                    <span>
-                      <NumberFormat
-                        value={freteCalculated.current}
-                        displayType={'text'}
-                        thousandSeparator={true}
-                        prefix={'R$ '}
-                      />
-                    </span>
-                  </>
-                )}
-              </TotalLabel>
-            </Total>
-            <Total>
-              <strong>
-                <em>CART</em>
-              </strong>{' '}
-              <TotalLabel>
-                Subtotal:
-                {cart.length > 0 && (
-                  <>
-                    <span>
-                      <NumberFormat
-                        value={subTotalCalculated.current.toFixed(2)}
-                        displayType={'text'}
-                        thousandSeparator={true}
-                        prefix={'R$ '}
-                      />
-                    </span>{' '}
-                  </>
-                )}
-              </TotalLabel>
-            </Total>
-            <Total>
-              <strong>
-                <em>CART</em>
               </strong>{' '}
               <TotalLabel>
                 TOTAL:
@@ -226,11 +186,12 @@ function Landing() {
                         thousandSeparator={true}
                         prefix={'R$ '}
                       />
-                    </span>{' '}
+                    </span>
                   </>
                 )}
               </TotalLabel>
             </Total>
+            <ItemDetails />
           </SaveCart>
         </Aside>
       </Main>
