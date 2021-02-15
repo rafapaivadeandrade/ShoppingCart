@@ -11,7 +11,7 @@ import {
   Items,
 } from '../../pages/Landing/styles';
 import { useProduct } from '../../hooks/ContextApi';
-import cartIcon from '../../assets/images/icons/cart-icon.svg';
+// import cartIcon from '../../assets/images/icons/cart-icon.svg';
 
 function ItemsData({ product }) {
   const { addToCart } = useProduct();
@@ -34,8 +34,8 @@ function ItemsData({ product }) {
             addToCart(product);
           }}
         >
-          <CartImage src={cartIcon} />
-          <span>Adicionar ao Cart</span>
+          {/* <CartImage src={cartIcon} /> */}
+          Adicionar ao Cart
         </AddButton>
       </Column>
     </Items>

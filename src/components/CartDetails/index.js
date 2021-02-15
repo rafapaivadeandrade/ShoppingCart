@@ -3,7 +3,7 @@ import { Button, Collapse } from 'react-bootstrap';
 import { Total, TotalLabel, ArrowImage } from '../../pages/Landing/styles';
 import NumberFormat from 'react-number-format';
 import { useProduct } from '../../hooks/ContextApi';
-import arrowDown from '../../assets/images/icons/arrow-down-icon.svg';
+// import arrowDown from '../../assets/images/icons/arrow-down-icon.svg';
 
 function CartDetail() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ function CartDetail() {
         style={{ marginBottom: '0px', marginTop: '-20px' }}
       >
         Details
-        {open === false ? `+` : <ArrowImage src={arrowDown} />}
+        {open === false ? `+` : `-`}
       </Button>
       <Collapse in={open}>
         <div>

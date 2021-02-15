@@ -14,6 +14,7 @@ function Cart({ cartItem }) {
   return (
     <CartItems key={cartItem.id}>
       <i
+        id="icon"
         className="far fa-trash-alt"
         onClick={() => {
           removeFromCart(cartItem);

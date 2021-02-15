@@ -6,7 +6,7 @@ import React, {
   useRef,
 } from 'react';
 import Data from '../assets/products.json';
-const ProductContext = createContext({});
+export const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
@@ -14,7 +14,6 @@ export const ProductProvider = ({ children }) => {
   let freteCalculated = useRef(0);
   let subTotalCalculated = useRef(0);
   let totalCalculated = useRef(0);
-  let isFreteFree = false;
 
   const fetchData = useCallback(() => {
     setProducts(Data);
