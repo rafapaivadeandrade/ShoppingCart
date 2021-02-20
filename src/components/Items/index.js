@@ -1,31 +1,27 @@
 import React from 'react';
 import {
   AddButton,
-  Image,
   LabelRow,
   ItemRow,
   Column,
   Label,
   Item,
-  CartImage,
   Items,
+  Image,
+  Period,
 } from '../../page/styles';
 
 function ItemsData({ product }) {
   return (
     <Items>
-      <Column>
-        <LabelRow>
-          <Label>Name:</Label>
-          <Label>Price:</Label>
-          <Label>Score:</Label>
-        </LabelRow>
-        <ItemRow>
-          <Item style={{ width: '30px' }}>name</Item>
-          <Item>R$:123</Item>
-        </ItemRow>
-        <AddButton>Adicionar ao Cart</AddButton>
-      </Column>
+      <Image></Image>
+      <Label style={{ fontWeight: 'bold' }}>Product Name</Label>
+      <LabelRow>
+        <Label>$ 123,00</Label>
+        <Period>.</Period>
+        <Label>2 left</Label>
+      </LabelRow>
+      <AddButton>BUY</AddButton>
     </Items>
   );
 }

@@ -35,13 +35,22 @@ function Landing() {
       </Nav>
       <Main>
         <Section>
-          <Box>{/* <ItemsData /> */}</Box>
+          <Box>
+            <ItemsData />
+            <ItemsData />
+            <ItemsData />
+            <ItemsData />
+            <ItemsData />
+            <ItemsData />
+          </Box>
         </Section>
         <Aside>
           <CartTitle>
             <em>CART</em>
           </CartTitle>
-          <CartContainer>{/* <Cart /> */}</CartContainer>
+          <CartContainer>
+            <Cart />
+          </CartContainer>
           <SaveCart>
             <Total>
               <strong>
@@ -49,7 +58,7 @@ function Landing() {
               </strong>{' '}
               <TotalLabel>TOTAL:</TotalLabel>
             </Total>
-            {/* <CartDetail /> */}
+            <CartDetail />
           </SaveCart>
         </Aside>
       </Main>

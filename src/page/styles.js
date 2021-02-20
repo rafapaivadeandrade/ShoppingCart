@@ -88,24 +88,25 @@ export const Price = styled.div`
     color: #f7f7f7;
   }
 `;
-
 export const Box = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 80%;
+  width: 900px;
   margin-top: 10px;
 `;
 export const Items = styled.div`
   box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.2);
-  width: 450px;
-  height: 200px;
+  width: 200px;
+  height: 260px;
   display: flex;
   align-items: center;
   font-size: 30px;
-  padding: 15px;
   margin-top: 10px;
-  flex-direction: row;
+  flex-direction: column;
+  margin-right: 50px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 `;
 export const Buttons = styled.div`
   border-radius: 20px;
@@ -114,41 +115,30 @@ export const Buttons = styled.div`
 `;
 export const AddButton = styled.button`
   color: #ffffff;
-  background-color: #27c383;
+  background-color: #333333;
   outline: none;
-  border: 1px solid #27c383;
+  border: 1px solid #333333;
   font-size: 12px;
   font-weight: bold;
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 200px;
   transition: background-color 1s;
-  margin-left: 120px;
-  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   &:hover {
     opacity: 0.8;
     background-color: transparent;
-    color: #28c383;
+    color: #333333;
     cursor: pointer;
-    svg {
-      opacity: 0.8;
-      background-color: transparent;
-      color: #28c383;
-    }
   }
 `;
 export const CartImage = styled.img`
   width: 20px;
   height: 20px;
-  margin-right: 10px;
-`;
-export const ArrowImage = styled.img`
-  width: 10px;
-  height: 10px;
   margin-right: 10px;
 `;
 export const Aside = styled.aside`
@@ -204,18 +194,22 @@ export const SaveCartLabel = styled.p`
     opacity: 0.8;
   }
 `;
-export const Image = styled.img`
-  width: 100px;
+export const Image = styled.div`
+  width: 200px;
   height: 100px;
   object-fit: cover;
+  background-color: #999999;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 10px;
+  padding-top: 150px;
 `;
 export const LabelRow = styled.div`
   display: flex;
-  width: 300px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
   flex-direction: row;
-  justify-content: space-between;
-  margin-left: 10px;
+  margin-top: 10px;
 `;
 export const ItemRow = styled.div`
   display: flex;
@@ -233,6 +227,14 @@ export const Column = styled.div`
 export const Label = styled.span`
   font-size: 15px;
   color: #737373;
+  margin-left: 10px;
+  width: 120px;
+`;
+export const Period = styled.span`
+  color: #333333;
+  padding-bottom: 50px;
+  width: 1px;
+  margin-top: -15px;
 `;
 export const Item = styled.span`
   font-size: 15px;

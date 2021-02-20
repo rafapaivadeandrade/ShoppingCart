@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Total, TotalLabel, ArrowImage } from '../../page/styles';
+import { Total, TotalLabel } from '../../page/styles';
 import NumberFormat from 'react-number-format';
 
 function CartDetail() {
-  const [open, setOpen] = useState(false);
-
   return (
     <div>
       <>
