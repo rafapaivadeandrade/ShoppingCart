@@ -1,27 +1,59 @@
-import React from 'react';
-import logo from '../logo.svg';
+import React, { useEffect } from 'react';
+import {
+  Container,
+  Nav,
+  FirstNav,
+  FirstSpan,
+  SecondNav,
+  ThirdSpan,
+  Main,
+  Section,
+  Price,
+  Box,
+  Aside,
+  CartContainer,
+  CartTitle,
+  Total,
+  TotalLabel,
+  SaveCart,
+} from './styles';
 import '../App.css';
-
-// import { Container } from './styles';
+import CartDetail from '../components/CartDetails';
+import ItemsData from '../components/Items';
+import Cart from '../components/Cart';
 
 function Landing() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Nav>
+        <FirstNav>
+          <FirstSpan>Shopping</FirstSpan>
+        </FirstNav>
+        <SecondNav>
+          <ThirdSpan>John doe</ThirdSpan>
+        </SecondNav>
+      </Nav>
+      <Main>
+        <Section>
+          <Box>{/* <ItemsData /> */}</Box>
+        </Section>
+        <Aside>
+          <CartTitle>
+            <em>CART</em>
+          </CartTitle>
+          <CartContainer>{/* <Cart /> */}</CartContainer>
+          <SaveCart>
+            <Total>
+              <strong>
+                <em>CART</em>
+              </strong>{' '}
+              <TotalLabel>TOTAL:</TotalLabel>
+            </Total>
+            {/* <CartDetail /> */}
+          </SaveCart>
+        </Aside>
+      </Main>
+    </Container>
   );
 }
 export default Landing;
