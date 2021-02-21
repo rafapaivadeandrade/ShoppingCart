@@ -1,3 +1,6 @@
+import { takeLatest, all, put } from 'redux-saga/effects';
+import { Types } from '../actionCreators';
+import { getProducts } from './products';
 export default function* rootSaga() {
-  console.log('rootSaga');
+  yield all([takeLatest(Types.GET_PRODUCTS_REQUEST, getProducts)]);
 }

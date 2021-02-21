@@ -261,7 +261,7 @@ export const Label = styled.span`
   font-size: 15px;
   color: #737373;
   margin-left: 10px;
-  width: 120px;
+  width: 60px;
 `;
 export const Period = styled.span`
   color: #333333;

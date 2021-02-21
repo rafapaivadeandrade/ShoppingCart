@@ -8,7 +8,6 @@ import {
   ThirdSpan,
   Main,
   Section,
-  DiscountContainer,
   Box,
   Aside,
   CartContainer,
@@ -16,8 +15,6 @@ import {
   Total,
   TotalLabel,
   SaveCart,
-  Input,
-  Button,
   CheckOutButton,
 } from './styles';
 import '../App.css';
@@ -26,8 +23,19 @@ import ItemsData from '../components/Items';
 import Cart from '../components/Cart';
 import NumberFormat from 'react-number-format';
 import Discount from '../components/Discount';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import ActionCreators from '../redux/actionCreators';
 
 function Landing() {
+  const { products } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(ActionCreators.getProductsRequest(true));
+    console.log(products);
+  }, []);
+
   return (
     <Container>
       <Nav>
@@ -49,12 +57,9 @@ function Landing() {
       <Main>
         <Section>
           <Box>
-            <ItemsData />
-            <ItemsData />
-            <ItemsData />
-            <ItemsData />
-            <ItemsData />
-            <ItemsData />
+            {products.data.map((product) => {
+              return <ItemsData key={product.id} product={product} />;
+            })}
           </Box>
         </Section>
         <Aside>
