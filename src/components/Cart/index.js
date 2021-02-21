@@ -1,26 +1,33 @@
 import React from 'react';
 import {
   CartItems,
-  CartBorder,
   Item,
   CartDetails,
   CartName,
-  CartPrice,
+  CartQntPrice,
+  CartImage,
+  Buttons,
+  RemoveButton,
+  AddButton,
 } from '../../page/styles';
 
 function Cart() {
   return (
     <CartItems>
-      <i id="icon"></i>
-      <CartBorder></CartBorder>
+      <CartImage />
       <CartDetails>
         <CartName>
-          <Item style={{ width: '180px' }}>Name</Item>
+          <Item style={{ width: '180px' }}>Product name</Item>
         </CartName>
-        <CartPrice>
-          <Item>R$:Price</Item>
-        </CartPrice>
+        <CartQntPrice>
+          <Item>Quantity: 4</Item>
+          <Item style={{ marginRight: '10px' }}>$ 123</Item>
+        </CartQntPrice>
       </CartDetails>
+      <Buttons>
+        <AddButton>+</AddButton>
+        <RemoveButton>-</RemoveButton>
+      </Buttons>
     </CartItems>
   );
 }

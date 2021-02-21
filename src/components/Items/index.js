@@ -1,11 +1,8 @@
 import React from 'react';
 import {
-  AddButton,
+  BuyButton,
   LabelRow,
-  ItemRow,
-  Column,
   Label,
-  Item,
   Items,
   Image,
   Period,
@@ -21,7 +18,7 @@ function ItemsData({ product }) {
         <Period>.</Period>
         <Label>2 left</Label>
       </LabelRow>
-      <AddButton>BUY</AddButton>
+      <BuyButton>BUY</BuyButton>
     </Items>
   );
 }

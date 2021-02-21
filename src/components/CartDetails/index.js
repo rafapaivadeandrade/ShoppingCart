@@ -7,42 +7,45 @@ function CartDetail() {
     <div>
       <>
         <div>
-          <Total>
-            <strong>
-              <em>CART</em>
-            </strong>
-            <TotalLabel>
-              Frete:
-              <>
-                <span>
-                  <NumberFormat
-                    value={1}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    prefix={'R$ '}
-                  />
-                </span>
-              </>
-            </TotalLabel>
-          </Total>
-          <Total>
-            <strong>
-              <em>CART</em>
-            </strong>{' '}
-            <TotalLabel>
-              Subtotal:
-              <>
-                <span>
-                  <NumberFormat
-                    value={1}
-                    displayType={'text'}
-                    thousandSeparator={true}
-                    prefix={'R$ '}
-                  />
-                </span>{' '}
-              </>
-            </TotalLabel>
-          </Total>
+          <TotalLabel>
+            Subtotal
+            <>
+              <span>
+                <NumberFormat
+                  value={234.0}
+                  displayType={'text'}
+                  thousandSeparator={true}
+                  prefix={'$ '}
+                />
+              </span>
+            </>
+          </TotalLabel>
+          <TotalLabel>
+            Shipping:
+            <>
+              <span>
+                <NumberFormat
+                  value={10}
+                  displayType={'text'}
+                  thousandSeparator={true}
+                  prefix={'R$ '}
+                />
+              </span>{' '}
+            </>
+          </TotalLabel>
+          <TotalLabel>
+            Discount:
+            <>
+              <span>
+                <NumberFormat
+                  value={1}
+                  displayType={'text'}
+                  thousandSeparator={true}
+                  prefix={'R$ '}
+                />
+              </span>{' '}
+            </>
+          </TotalLabel>
         </div>
       </>
     </div>
