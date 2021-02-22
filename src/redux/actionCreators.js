@@ -8,5 +8,9 @@ export const { Types, Creators } = createActions({
   addToCartRequest: ['product'],
   addToCartSuccess: ['product'],
   addToCartFailure: ['error'],
+
+  removeFromCartRequest: ['id'],
+  removeFromCartSuccess: ['id'],
+  removeFromCartFailure: ['error'],
 });
 export default Creators;

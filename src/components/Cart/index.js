@@ -10,11 +10,14 @@ import {
   RemoveButton,
   AddButton,
 } from '../../page/styles';
+import ActionCreators from '../../redux/actionCreators';
+import { useDispatch } from 'react-redux';
 
 function Cart({ product }) {
-  // console.log(product);
+  const dispatch = useDispatch();
+
   return (
-    <CartItems>
+    <CartItems key={product.id}>
       <CartImage />
       <CartDetails>
         <CartName>
@@ -27,7 +30,13 @@ function Cart({ product }) {
       </CartDetails>
       <Buttons>
         <AddButton>+</AddButton>
-        <RemoveButton>-</RemoveButton>
+        <RemoveButton
+          onClick={() =>
+            dispatch(ActionCreators.removeFromCartRequest(product.id))
+          }
+        >
+          -
+        </RemoveButton>
       </Buttons>
     </CartItems>
   );

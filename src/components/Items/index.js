@@ -29,7 +29,7 @@ function ItemsData({ product }) {
         <Label>{product.available} left</Label>
       </LabelRow>
       <BuyButton
-        onClick={() => dispatch(ActionCreators.addToCartSuccess(product))}
+        onClick={() => dispatch(ActionCreators.addToCartRequest(product))}
       >
         BUY
       </BuyButton>

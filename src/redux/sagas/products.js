@@ -11,3 +11,7 @@ export function* getProducts() {
 export function* addToCart(product) {
   yield put(ActionCreators.addToCartSuccess(product));
 }
+
+export function* removeFromCart(product) {
+  yield put(ActionCreators.removeFromCartSuccess(product));
+}
