@@ -8,3 +8,6 @@ export function* getProducts() {
   );
   yield put(ActionCreators.getProductsSuccess(products.data.products));
 }
+export function* addToCart(product) {
+  yield put(ActionCreators.addToCartSuccess(product));
+}

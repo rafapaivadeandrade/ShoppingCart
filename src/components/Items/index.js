@@ -8,8 +8,10 @@ import {
   Period,
 } from '../../page/styles';
 import NumberFormat from 'react-number-format';
-
+import { useDispatch } from 'react-redux';
+import ActionCreators from '../../redux/actionCreators';
 function ItemsData({ product }) {
+  const dispatch = useDispatch();
   return (
     <Items>
       <Image></Image>
@@ -26,7 +28,11 @@ function ItemsData({ product }) {
         <Period>.</Period>
         <Label>{product.available} left</Label>
       </LabelRow>
-      <BuyButton onClick={() => {}}>BUY</BuyButton>
+      <BuyButton
+        onClick={() => dispatch(ActionCreators.addToCartSuccess(product))}
+      >
+        BUY
+      </BuyButton>
     </Items>
   );
 }

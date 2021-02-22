@@ -11,17 +11,18 @@ import {
   AddButton,
 } from '../../page/styles';
 
-function Cart() {
+function Cart({ product }) {
+  // console.log(product);
   return (
     <CartItems>
       <CartImage />
       <CartDetails>
         <CartName>
-          <Item style={{ width: '180px' }}>Product name</Item>
+          <Item style={{ width: '180px' }}>{product.name}</Item>
         </CartName>
         <CartQntPrice>
-          <Item>Quantity: 4</Item>
-          <Item style={{ marginRight: '10px' }}>$ 123</Item>
+          <Item>Quantity: {product.available}</Item>
+          <Item style={{ marginRight: '10px' }}>$ {product.price}</Item>
         </CartQntPrice>
       </CartDetails>
       <Buttons>

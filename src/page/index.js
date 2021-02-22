@@ -33,8 +33,8 @@ function Landing() {
 
   useEffect(() => {
     dispatch(ActionCreators.getProductsRequest(true));
-    console.log(products);
-  }, []);
+    console.log(products.cart);
+  }, [products.cart]);
 
   return (
     <Container>
@@ -65,8 +65,11 @@ function Landing() {
         <Aside>
           <CartTitle>Shopping Cart</CartTitle>
           <CartContainer>
-            <Cart />
-            <Cart />
+            {products.cart.length === 0 && ''}
+            {products.cart.length !== 0 &&
+              products.cart.map((cart) => {
+                return <Cart product={cart} />;
+              })}
           </CartContainer>
           <Discount />
           <SaveCart>
