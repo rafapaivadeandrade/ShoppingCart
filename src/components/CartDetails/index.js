@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Total, TotalLabel } from '../../page/styles';
+import { TotalLabel } from '../../page/styles';
 import NumberFormat from 'react-number-format';
+import { useSelector } from 'react-redux';
 
 function CartDetail() {
+  const { products } = useSelector((state) => state);
   return (
     <div>
       <>
@@ -12,7 +14,7 @@ function CartDetail() {
             <>
               <span>
                 <NumberFormat
-                  value={234.0}
+                  value={products.subtotal}
                   displayType={'text'}
                   thousandSeparator={true}
                   prefix={'$ '}
@@ -25,7 +27,7 @@ function CartDetail() {
             <>
               <span>
                 <NumberFormat
-                  value={10}
+                  value={products.shipping}
                   displayType={'text'}
                   thousandSeparator={true}
                   prefix={'R$ '}
@@ -38,7 +40,7 @@ function CartDetail() {
             <>
               <span>
                 <NumberFormat
-                  value={1}
+                  value={products.discount}
                   displayType={'text'}
                   thousandSeparator={true}
                   prefix={'R$ '}

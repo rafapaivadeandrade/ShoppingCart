@@ -33,6 +33,7 @@ function Landing() {
 
   useEffect(() => {
     dispatch(ActionCreators.getProductsRequest(true));
+    console.log(products);
   }, []);
 
   return (
@@ -77,7 +78,7 @@ function Landing() {
                 <>
                   <span>
                     <NumberFormat
-                      value={1}
+                      value={products.total}
                       displayType={'text'}
                       thousandSeparator={true}
                       prefix={'R$ '}

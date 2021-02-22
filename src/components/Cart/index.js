@@ -32,7 +32,6 @@ function Cart({ product }) {
         removeItem(item);
       }
     });
-    console.log(product.count);
   }
 
   function removeItem(item) {
