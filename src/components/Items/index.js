@@ -34,7 +34,9 @@ function ItemsData({ product }) {
           />
         </Label>
         <Period>.</Period>
-        <Label>{product.available} left</Label>
+        <Label>
+          {product.left === undefined ? product.available : product.left} left
+        </Label>
       </LabelRow>
       <BuyButton onClick={() => addToCart()}>BUY</BuyButton>
     </Items>

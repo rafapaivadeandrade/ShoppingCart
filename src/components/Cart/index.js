@@ -19,31 +19,24 @@ function Cart({ product }) {
   const dispatch = useDispatch();
 
   function countValue(productId) {
-    console.log(products.cart);
     products.cart.forEach((item) => {
       if (item.id === productId) {
-        product.count += 1;
-        // return (item.count += 1);
+        dispatch(ActionCreators.addToCartRequest(product));
       }
     });
-    console.log(product);
-    dispatch(ActionCreators.getProductsRequest(true));
   }
 
   function reduction(productId) {
     products.cart.forEach((item) => {
       if (item.id === productId) {
-        product.count === 0 ? removeItem(productId) : (product.count -= 1);
-        console.log(product.count);
+        removeItem(item);
       }
     });
-    dispatch(ActionCreators.getProductsRequest(true));
+    console.log(product.count);
   }
 
-  function removeItem(productId) {
-    console.log('test');
-    dispatch(ActionCreators.removeFromCartRequest(productId));
-    dispatch(ActionCreators.getProductsRequest(true));
+  function removeItem(item) {
+    dispatch(ActionCreators.removeFromCartRequest(item));
   }
 
   return (
@@ -55,7 +48,7 @@ function Cart({ product }) {
         </CartName>
         <CartQntPrice>
           <Item>Quantity: {product.count}</Item>
-          <Item style={{ marginRight: '10px' }}>$ {product.price}</Item>
+          <Item style={{ marginRight: '10px' }}>${product.price}</Item>
         </CartQntPrice>
       </CartDetails>
       <Buttons>

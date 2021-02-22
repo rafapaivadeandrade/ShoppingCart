@@ -17,7 +17,6 @@ export const getProductsRequest = (state = INITIAL_STATE, action) => {
   };
 };
 export const getProductsSuccess = (state = INITIAL_STATE, action) => {
-  // console.log(action.products);
   return {
     ...state,
     isLoading: false,
@@ -38,18 +37,35 @@ export const addToCartRequest = (state = INITIAL_STATE, action) => {
   };
 };
 export const addToCartSuccess = (state = INITIAL_STATE, action) => {
-  // console.log(action.product.product);
   // console.log(state.cart);
-  var product = action.product.product;
-  let count = 1;
-  product.count = count;
-  console.log(product);
-  return {
-    ...state,
-    isSaving: false,
-    saved: true,
-    cart: [...state.cart, product],
-  };
+  // console.log(action.product.product);
+  var repeatedProduct = state.cart.find(
+    (p) => p.id === action.product.product.id
+  );
+  if (repeatedProduct) {
+    console.log('repeated!');
+    var product = action.product.product;
+    let count = 1;
+    product.count += count;
+    product.left = product.available - product.count;
+    return {
+      ...state,
+      isSaving: false,
+      saved: true,
+      cart: [...state.cart],
+    };
+  } else {
+    var product = action.product.product;
+    let count = 1;
+    product.count = count;
+    product.left = product.available - count;
+    return {
+      ...state,
+      isSaving: false,
+      saved: true,
+      cart: [...state.cart, product],
+    };
+  }
 };
 export const addToCartFailure = (state = INITIAL_STATE, action) => {
   return {
@@ -65,11 +81,18 @@ export const removeFromCartRequest = (state = INITIAL_STATE, action) => {
   };
 };
 export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
+  console.log(action.product.product);
+  var product = action.product.product;
+  let count = 1;
+  product.count -= count;
+  product.left = product.available - product.count;
   const cart = [...state.cart];
-  const id = action.id.id;
-  console.log(id);
-  const indexToDelete = cart.findIndex((product) => product.id === id);
-  cart.splice(indexToDelete, 1);
+  const id = action.product.product.id;
+  if (product.count === 0) {
+    const indexToDelete = cart.findIndex((product) => product.id === id);
+    cart.splice(indexToDelete, 1);
+  }
+
   return {
     ...state,
     isSaving: false,
