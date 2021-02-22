@@ -9,9 +9,17 @@ import {
 } from '../../page/styles';
 import NumberFormat from 'react-number-format';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ActionCreators from '../../redux/actionCreators';
 function ItemsData({ product }) {
   const dispatch = useDispatch();
+  const { products } = useSelector((state) => state);
+
+  function addToCart() {
+    var repeatedProduct = products.cart.find((p) => p.id === product.id);
+    if (repeatedProduct) return null;
+    dispatch(ActionCreators.addToCartRequest(product));
+  }
   return (
     <Items>
       <Image></Image>
@@ -28,11 +36,7 @@ function ItemsData({ product }) {
         <Period>.</Period>
         <Label>{product.available} left</Label>
       </LabelRow>
-      <BuyButton
-        onClick={() => dispatch(ActionCreators.addToCartRequest(product))}
-      >
-        BUY
-      </BuyButton>
+      <BuyButton onClick={() => addToCart()}>BUY</BuyButton>
     </Items>
   );
 }

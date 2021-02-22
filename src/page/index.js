@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Container,
   Nav,
@@ -33,8 +33,7 @@ function Landing() {
 
   useEffect(() => {
     dispatch(ActionCreators.getProductsRequest(true));
-    console.log(products.cart);
-  }, []);
+  }, [products.cart]);
 
   return (
     <Container>
@@ -57,7 +56,7 @@ function Landing() {
       <Main>
         <Section>
           <Box>
-            {products.data.map((product) => {
+            {products.data.map((product, index) => {
               return <ItemsData key={product.id} product={product} />;
             })}
           </Box>
@@ -65,11 +64,9 @@ function Landing() {
         <Aside>
           <CartTitle>Shopping Cart</CartTitle>
           <CartContainer>
-            {products.cart.length === 0 && ''}
-            {products.cart.length !== 0 &&
-              products.cart.map((cart) => {
-                return <Cart key={cart.id} product={cart} />;
-              })}
+            {products.cart.map((cart) => {
+              return <Cart key={cart.id} product={cart} />;
+            })}
           </CartContainer>
           <Discount />
           <SaveCart>

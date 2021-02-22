@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { createReducer } from 'reduxsauce';
 import { Types } from '../actionCreators';
 
@@ -41,12 +40,15 @@ export const addToCartRequest = (state = INITIAL_STATE, action) => {
 export const addToCartSuccess = (state = INITIAL_STATE, action) => {
   // console.log(action.product.product);
   // console.log(state.cart);
-
+  var product = action.product.product;
+  let count = 1;
+  product.count = count;
+  console.log(product);
   return {
     ...state,
     isSaving: false,
     saved: true,
-    cart: [...state.cart, action.product.product],
+    cart: [...state.cart, product],
   };
 };
 export const addToCartFailure = (state = INITIAL_STATE, action) => {
