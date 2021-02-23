@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TotalLabel } from '../../page/styles';
 import NumberFormat from 'react-number-format';
 import { useSelector } from 'react-redux';
@@ -30,7 +30,7 @@ function CartDetail() {
                   value={products.shipping}
                   displayType={'text'}
                   thousandSeparator={true}
-                  prefix={'R$ '}
+                  prefix={'$ '}
                 />
               </span>{' '}
             </>
@@ -43,7 +43,7 @@ function CartDetail() {
                   value={products.discount}
                   displayType={'text'}
                   thousandSeparator={true}
-                  prefix={'R$ '}
+                  prefix={'$ '}
                 />
               </span>{' '}
             </>

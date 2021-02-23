@@ -12,5 +12,9 @@ export const { Types, Creators } = createActions({
   removeFromCartRequest: ['product'],
   removeFromCartSuccess: ['product'],
   removeFromCartFailure: ['error'],
+
+  getVouchersRequest: null,
+  getVouchersSuccess: ['vouchers'],
+  getVouchersFailure: null,
 });
 export default Creators;

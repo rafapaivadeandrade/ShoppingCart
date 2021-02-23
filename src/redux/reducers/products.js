@@ -3,11 +3,10 @@ import { Types } from '../actionCreators';
 
 export const INITIAL_STATE = {
   isLoading: false,
+  isDiscounted: false,
   data: [],
   cart: [],
   errorMessage: '',
-  saved: false,
-  isSaving: false,
   subtotal: 0,
   shipping: 0,
   discount: 0,
@@ -37,106 +36,183 @@ export const getProductsFailure = (state = INITIAL_STATE, action) => {
 export const addToCartRequest = (state = INITIAL_STATE, action) => {
   return {
     ...state,
-    isSaving: true,
-    saved: false,
+    isDiscounted: true,
   };
 };
 export const addToCartSuccess = (state = INITIAL_STATE, action) => {
-  // console.log(state.cart);
-  // console.log(action.product.product);
-  var repeatedProduct = state.cart.find(
-    (p) => p.id === action.product.product.id
-  );
-  if (repeatedProduct) {
-    console.log('repeated!');
-    var product = action.product.product;
-    let count = 1;
-    state.subtotal += product.price;
-    state.kilograms += 1;
-    if (state.kilograms <= 10) {
-      state.shipping += 30;
-    } else {
-      if (state.kilograms % 5 && state.kilograms > 10) {
-        state.shipping += 7;
-      }
-    }
-    if (state.subtotal > 400) state.shipping = 0;
-
-    product.count += count;
-    product.left = product.available - product.count;
-    if (product.count > product.available) {
-      product.left = 0;
-      product.count = product.available;
-      state.kilograms -= 1;
-    }
-    console.log(state.kilograms);
+  if (action.product.product.type === 'percentual') {
+    state.discount = (state.subtotal * action.product.product.amount) / 100;
+    state.subtotal = state.subtotal - state.discount;
+    console.log('subtotal: ' + state.subtotal);
+    state.total = state.subtotal + state.shipping;
 
     return {
       ...state,
-      isSaving: false,
-      saved: true,
+      isDiscounted: true,
       cart: [...state.cart],
       subtotal: state.subtotal,
       kilograms: state.kilograms,
       shipping: state.shipping,
+      discount: state.discount,
+      total: state.total,
     };
-  } else {
-    var product = action.product.product;
-    let count = 1;
-    state.subtotal += product.price;
-    state.kilograms += 1;
-    if (state.kilograms <= 10) {
-      state.shipping += 30;
-    } else {
-      if (state.kilograms % 5 && state.kilograms > 10) {
-        state.shipping += 7;
-      }
-    }
-    if (state.subtotal > 400) state.shipping = 0;
-
-    product.count = count;
-    product.left = product.available - count;
-    if (product.count > product.available) {
-      product.left = 0;
-      product.count = product.available;
-      state.kilograms -= 1;
-    }
-    console.log(state.kilograms);
-
+  } else if (action.product.product.type === 'fixed') {
+    state.discount = action.product.product.amount;
+    state.total = state.total - state.discount;
+    console.log('total: ' + state.total);
     return {
       ...state,
-      isSaving: false,
-      saved: true,
-      cart: [...state.cart, product],
+      isDiscounted: true,
+      cart: [...state.cart],
       subtotal: state.subtotal,
       kilograms: state.kilograms,
       shipping: state.shipping,
+      discount: state.discount,
+      total: state.total,
     };
+  } else if (action.product.product.type === 'shipping') {
+    if (state.subtotal >= action.product.product.minValue) {
+      state.shipping = 0;
+      console.log('shipping: ' + state.shipping);
+      state.total = state.subtotal + state.shipping;
+      state.discount = 0;
+      return {
+        ...state,
+        isDiscounted: true,
+        shipping: state.shipping,
+        discount: state.discount,
+        total: state.total,
+      };
+    }
+  } else {
+    var repeatedProduct = state.cart.find(
+      (p) => p.id === action.product.product.id
+    );
+    if (repeatedProduct) {
+      console.log('repeated!');
+      var product = action.product.product;
+      let count = 1;
+      product.count += count;
+      if (product.count <= product.available) {
+        state.subtotal += product.price;
+        state.kilograms += 1;
+        console.log(state.kilograms);
+
+        if (state.kilograms <= 10) {
+          state.shipping = 30;
+        } else {
+          if (state.kilograms > 10 && state.kilograms % 5 === 0) {
+            console.log(true);
+            state.shipping += 7;
+          }
+        }
+        if (state.subtotal > 400) state.shipping = 0;
+
+        product.left = product.available - product.count;
+        if (product.count > product.available) {
+          product.left = 0;
+          product.count = product.available;
+          state.kilograms -= 1;
+          if (state.kilograms < 0) {
+            state.kilograms = 0;
+          }
+        }
+        state.total = state.subtotal + state.shipping;
+        return {
+          ...state,
+          isDiscounted: false,
+          cart: [...state.cart],
+          subtotal: state.subtotal,
+          kilograms: state.kilograms,
+          shipping: state.shipping,
+        };
+      } else {
+        product.count = product.available;
+        return {
+          ...state,
+          isDiscounted: false,
+          cart: [...state.cart],
+          subtotal: state.subtotal,
+          kilograms: state.kilograms,
+          shipping: state.shipping,
+        };
+      }
+    } else {
+      console.log('NOTrepeated!');
+
+      var product = action.product.product;
+      let count = 1;
+      product.count = count;
+      if (product.count <= product.available) {
+        state.subtotal += product.price;
+        state.kilograms += 1;
+        console.log(state.kilograms);
+
+        if (state.kilograms <= 10) {
+          state.shipping = 30;
+        } else {
+          if (state.kilograms > 10 && state.kilograms % 5 === 0) {
+            console.log(true);
+            state.shipping += 7;
+          }
+        }
+        if (state.subtotal > 400) state.shipping = 0;
+
+        product.left = product.available - count;
+        if (product.count > product.available) {
+          product.left = 0;
+          product.count = product.available;
+          state.kilograms -= 1;
+          if (state.kilograms < 0) {
+            state.kilograms = 0;
+          }
+        }
+        state.total = state.subtotal + state.shipping;
+        return {
+          ...state,
+          isDiscounted: false,
+          cart: [...state.cart, product],
+          subtotal: state.subtotal,
+          kilograms: state.kilograms,
+          shipping: state.shipping,
+          total: state.total,
+        };
+      } else {
+        product.count = product.available;
+        return {
+          ...state,
+          isDiscounted: false,
+          cart: [...state.cart],
+          subtotal: state.subtotal,
+          kilograms: state.kilograms,
+          shipping: state.shipping,
+        };
+      }
+    }
   }
 };
 export const addToCartFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,
-    isSaving: false,
-    saved: false,
+    isDiscounted: false,
   };
 };
 export const removeFromCartRequest = (state = INITIAL_STATE, action) => {
   return {
     ...state,
-    isSaving: false,
+    isDiscounted: false,
   };
 };
 export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
-  console.log(action.product.product);
   var product = action.product.product;
   let count = 1;
   state.subtotal -= product.price;
   state.kilograms -= 1;
-  if (state.kilograms <= 10) {
-    state.shipping -= 30;
+  if (state.kilograms === 0) {
+    state.shipping = 0;
   } else {
-    if (state.kilograms % 5 && state.kilograms > 10) {
+    console.log(state.kilograms);
+    if (state.kilograms >= 10 && state.kilograms % 5 === 0) {
       state.shipping -= 7;
     }
   }
@@ -144,7 +220,6 @@ export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
   if (state.shipping <= 0) {
     state.shipping = 0;
   }
-  console.log(state.kilograms);
   product.count -= count;
   product.left = product.available - product.count;
   const cart = [...state.cart];
@@ -156,18 +231,17 @@ export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
   if (product.left >= product.available) {
     product.left = product.available;
   }
-
+  state.total = state.subtotal + state.shipping;
   return {
     ...state,
-    isSaving: false,
     cart: cart,
     subtotal: state.subtotal,
+    total: state.total,
   };
 };
 export const removeFromCartFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,
-    isSaving: false,
   };
 };
 
