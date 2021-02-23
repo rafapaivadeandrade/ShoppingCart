@@ -24,6 +24,8 @@ export const getVouchersFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isLoading: false,
+    errorMessage:
+      'Request failed with status code 500, please refresh the page.',
   };
 };
 

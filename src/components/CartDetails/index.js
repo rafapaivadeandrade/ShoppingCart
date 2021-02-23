@@ -1,6 +1,5 @@
 import React from 'react';
 import { TotalLabel } from '../../page/styles';
-import NumberFormat from 'react-number-format';
 import { useSelector } from 'react-redux';
 
 function CartDetail() {
@@ -11,42 +10,15 @@ function CartDetail() {
         <div>
           <TotalLabel>
             Subtotal
-            <>
-              <span>
-                <NumberFormat
-                  value={products.subtotal}
-                  displayType={'text'}
-                  thousandSeparator={true}
-                  prefix={'$ '}
-                />
-              </span>
-            </>
+            <span>{'$ ' + products.subtotal.toFixed(2)}</span>{' '}
           </TotalLabel>
           <TotalLabel>
             Shipping:
-            <>
-              <span>
-                <NumberFormat
-                  value={products.shipping}
-                  displayType={'text'}
-                  thousandSeparator={true}
-                  prefix={'$ '}
-                />
-              </span>{' '}
-            </>
+            <span>{'$ ' + products.shipping.toFixed(2)}</span>{' '}
           </TotalLabel>
           <TotalLabel>
             Discount:
-            <>
-              <span>
-                <NumberFormat
-                  value={products.discount}
-                  displayType={'text'}
-                  thousandSeparator={true}
-                  prefix={'$ '}
-                />
-              </span>{' '}
-            </>
+            <span>{'$ ' + products.discount.toFixed(2)}</span>{' '}
           </TotalLabel>
         </div>
       </>

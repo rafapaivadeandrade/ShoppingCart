@@ -3,7 +3,7 @@ import { createActions } from 'reduxsauce';
 export const { Types, Creators } = createActions({
   getProductsRequest: null,
   getProductsSuccess: ['products'],
-  getProductsFailure: null,
+  getProductsFailure: ['error'],
 
   addToCartRequest: ['product'],
   addToCartSuccess: ['product'],

@@ -19,7 +19,6 @@ function Discount() {
     vouchers.vouchers.forEach((voucher) => {
       if (voucher.code === discount) {
         dispatch(ActionCreators.addToCartRequest(voucher));
-        console.log(products);
       }
     });
   }

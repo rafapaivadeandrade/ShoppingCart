@@ -31,6 +31,8 @@ export const getProductsFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isLoading: false,
+    errorMessage:
+      'Request failed with status code 500, please refresh the page.',
   };
 };
 export const addToCartRequest = (state = INITIAL_STATE, action) => {
@@ -203,6 +205,8 @@ export const addToCartFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isDiscounted: false,
+    errorMessage:
+      'Request failed with status code 500, please refresh the page.',
   };
 };
 
@@ -249,6 +253,8 @@ export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
 export const removeFromCartFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,
+    errorMessage:
+      'Request failed with status code 500, please refresh the page.',
   };
 };
 
