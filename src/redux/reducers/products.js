@@ -43,7 +43,6 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
   if (action.product.product.type === 'percentual') {
     state.discount = (state.subtotal * action.product.product.amount) / 100;
     state.subtotal = state.subtotal - state.discount;
-    console.log('subtotal: ' + state.subtotal);
     state.total = state.subtotal + state.shipping;
 
     return {
@@ -57,12 +56,24 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
       total: state.total,
     };
   } else if (action.product.product.type === 'fixed') {
+    if (state.total === 0 || state.total < 100) {
+      return {
+        ...state,
+        isDiscounted: true,
+        cart: [...state.cart],
+        subtotal: state.subtotal,
+        kilograms: state.kilograms,
+        shipping: state.shipping,
+        discount: state.discount,
+        total: state.total,
+      };
+    }
     state.discount = action.product.product.amount;
     state.total = state.total - state.discount;
-    console.log('total: ' + state.total);
+
     return {
       ...state,
-      isDiscounted: true,
+      isDiscounted: false,
       cart: [...state.cart],
       subtotal: state.subtotal,
       kilograms: state.kilograms,
@@ -73,12 +84,20 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
   } else if (action.product.product.type === 'shipping') {
     if (state.subtotal >= action.product.product.minValue) {
       state.shipping = 0;
-      console.log('shipping: ' + state.shipping);
       state.total = state.subtotal + state.shipping;
       state.discount = 0;
+
       return {
         ...state,
         isDiscounted: true,
+        shipping: state.shipping,
+        discount: state.discount,
+        total: state.total,
+      };
+    } else {
+      return {
+        ...state,
+        isDiscounted: false,
         shipping: state.shipping,
         discount: state.discount,
         total: state.total,
@@ -89,22 +108,18 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
       (p) => p.id === action.product.product.id
     );
     if (repeatedProduct) {
-      console.log('repeated!');
       var product = action.product.product;
       let count = 1;
       product.count += count;
       if (product.count <= product.available) {
         state.subtotal += product.price;
         state.kilograms += 1;
-        console.log(state.kilograms);
 
         if (state.kilograms <= 10) {
           state.shipping = 30;
         } else {
-          if (state.kilograms > 10 && state.kilograms % 5 === 0) {
-            console.log(true);
+          if (state.kilograms > 10 && state.kilograms % 5 === 0)
             state.shipping += 7;
-          }
         }
         if (state.subtotal > 400) state.shipping = 0;
 
@@ -113,9 +128,7 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
           product.left = 0;
           product.count = product.available;
           state.kilograms -= 1;
-          if (state.kilograms < 0) {
-            state.kilograms = 0;
-          }
+          if (state.kilograms < 0) state.kilograms = 0;
         }
         state.total = state.subtotal + state.shipping;
         return {
@@ -138,34 +151,28 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
         };
       }
     } else {
-      console.log('NOTrepeated!');
-
       var product = action.product.product;
       let count = 1;
       product.count = count;
       if (product.count <= product.available) {
         state.subtotal += product.price;
         state.kilograms += 1;
-        console.log(state.kilograms);
 
         if (state.kilograms <= 10) {
           state.shipping = 30;
         } else {
-          if (state.kilograms > 10 && state.kilograms % 5 === 0) {
-            console.log(true);
+          if (state.kilograms > 10 && state.kilograms % 5 === 0)
             state.shipping += 7;
-          }
         }
         if (state.subtotal > 400) state.shipping = 0;
 
         product.left = product.available - count;
+
         if (product.count > product.available) {
           product.left = 0;
           product.count = product.available;
           state.kilograms -= 1;
-          if (state.kilograms < 0) {
-            state.kilograms = 0;
-          }
+          if (state.kilograms < 0) state.kilograms = 0;
         }
         state.total = state.subtotal + state.shipping;
         return {
@@ -191,18 +198,21 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
     }
   }
 };
+
 export const addToCartFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isDiscounted: false,
   };
 };
+
 export const removeFromCartRequest = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isDiscounted: false,
   };
 };
+
 export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
   var product = action.product.product;
   let count = 1;
@@ -211,15 +221,11 @@ export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
   if (state.kilograms === 0) {
     state.shipping = 0;
   } else {
-    console.log(state.kilograms);
-    if (state.kilograms >= 10 && state.kilograms % 5 === 0) {
-      state.shipping -= 7;
-    }
+    if (state.kilograms >= 10 && state.kilograms % 5 === 0) state.shipping -= 7;
   }
   if (state.subtotal > 400) state.shipping = 0;
-  if (state.shipping <= 0) {
-    state.shipping = 0;
-  }
+  if (state.shipping <= 0) state.shipping = 0;
+
   product.count -= count;
   product.left = product.available - product.count;
   const cart = [...state.cart];
@@ -239,6 +245,7 @@ export const removeFromCartSuccess = (state = INITIAL_STATE, action) => {
     total: state.total,
   };
 };
+
 export const removeFromCartFailure = (state = INITIAL_STATE, action) => {
   return {
     ...state,

@@ -7,6 +7,8 @@ import ActionCreators from '../../redux/actionCreators';
 function Discount() {
   const [discount, setDiscount] = useState('');
   const { vouchers } = useSelector((state) => state);
+  const { products } = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,12 +16,10 @@ function Discount() {
   }, []);
 
   function getDiscount() {
-    console.log(vouchers);
-    // console.log(discount);
     vouchers.vouchers.forEach((voucher) => {
       if (voucher.code === discount) {
         dispatch(ActionCreators.addToCartRequest(voucher));
-      } else {
+        console.log(products);
       }
     });
   }
@@ -30,7 +30,9 @@ function Discount() {
         onChange={(e) => setDiscount(e.target.value)}
         value={discount}
       />
-      <Button onClick={() => getDiscount()}>APPLY</Button>
+      <Button onClick={() => getDiscount()} disabled={products.isDiscounted}>
+        APPLY
+      </Button>
     </DiscountContainer>
   );
 }
