@@ -56,6 +56,7 @@ function Landing() {
         <Main>
           <Section>
             <Box>
+              {/* DISPLAY PRODUCTS TO BUY*/}
               {products.data.map((product) => {
                 return <ItemsData key={product.id} product={product} />;
               })}
@@ -64,12 +65,14 @@ function Landing() {
           <Aside>
             <CartTitle>Shopping Cart</CartTitle>
             <CartContainer>
+              {/* DISPLAY PRODUCTS IN THE CART */}
               {products.cart.map((cart) => {
                 return <Cart key={cart.id} product={cart} />;
               })}
             </CartContainer>
             <Discount />
             <SaveCart>
+              {/* DISPLAY CART TOTAL AND DETAILS */}
               <CartDetail />
               <Total>
                 <TotalLabel style={{ color: '#333333' }}>
