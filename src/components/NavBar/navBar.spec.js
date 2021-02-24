@@ -7,11 +7,7 @@ import NavBar from './index';
 configure({ adapter: new Adapter() });
 
 describe('NavBar', () => {
-  const wrapper = shallow(
-    <NavBar>
-      <p>Yeah!</p>
-    </NavBar>
-  );
+  const wrapper = shallow(<NavBar />);
 
   describe('renders', () => {
     it('should render NavBar', () => {

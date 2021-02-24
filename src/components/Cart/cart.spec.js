@@ -8,8 +8,15 @@ import '@testing-library/jest-dom/extend-expect';
 describe('Cart', () => {
   const store = createStore;
   const mockProduct = { id: 1, name: 'Banana', price: 10.0, available: 10 };
-  const MockAddProduct = jest.fn();
-  const MockRemoveProduct = jest.fn();
+
+  it('should render Cart Component', () => {
+    const result = render(
+      <Provider store={store}>
+        <Cart product={mockProduct} />
+      </Provider>
+    );
+    expect(result).toBeTruthy();
+  });
 
   it('should trigger the add button and add product', () => {
     const { getByTestId } = render(

@@ -15,6 +15,16 @@ describe('itemsData', () => {
     left: 0,
   };
 
+  it('should render itemsData Component', () => {
+    const result = render(
+      <Provider store={store}>
+        <ItemsData product={mockProduct} />
+      </Provider>
+    );
+
+    expect(result).toBeTruthy();
+  });
+
   it('should trigger the buy button', () => {
     const { getByText } = render(
       <Provider store={store}>

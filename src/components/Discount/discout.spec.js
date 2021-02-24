@@ -10,6 +10,16 @@ describe('Discount', () => {
   const store = createStore;
   const mockInputValue = '#30OFF';
 
+  it('should render Details Component', () => {
+    const result = render(
+      <Provider store={store}>
+        <Discount />
+      </Provider>
+    );
+
+    expect(result).toBeTruthy();
+  });
+
   it('should trigger apply discount button', () => {
     const { getByText } = render(
       <Provider store={store}>
