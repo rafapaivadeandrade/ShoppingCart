@@ -19,7 +19,6 @@ describe('Cart', () => {
     );
     const addButton = getByTestId('plus');
     fireEvent.click(addButton);
-    // expect(MockAddProduct).toHaveBeenCalledTimes(1);
   });
   it('should trigger the remove button and remove product', () => {
     const { getByTestId } = render(
@@ -29,8 +28,6 @@ describe('Cart', () => {
     );
     const removeButton = getByTestId('minus');
     fireEvent.click(removeButton);
-    // expect(MockRemoveProduct).toHaveBeenCalled();
-    // expect(MockRemoveProduct).toHaveBeenCalledTimes(1);
   });
   it('should render a product object', () => {
     const { getByTestId } = render(

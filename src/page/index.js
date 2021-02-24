@@ -1,11 +1,6 @@
 import React, { useEffect } from 'react';
 import {
   Container,
-  Nav,
-  FirstNav,
-  FirstSpan,
-  SecondNav,
-  ThirdSpan,
   Main,
   Section,
   Box,
@@ -24,6 +19,7 @@ import Discount from '../components/Discount';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import ActionCreators from '../redux/actionCreators';
+import NavBar from '../components/NavBar';
 
 function Landing() {
   const { products, vouchers } = useSelector((state) => state);
@@ -36,22 +32,7 @@ function Landing() {
   if (vouchers.errorMessage.length > 0) {
     return (
       <Container>
-        <Nav>
-          <FirstNav>
-            <FirstSpan>Shopping</FirstSpan>
-          </FirstNav>
-          <SecondNav>
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 25,
-                backgroundColor: '#666666',
-              }}
-            />{' '}
-            <ThirdSpan>John doe</ThirdSpan>
-          </SecondNav>
-        </Nav>
+        <NavBar />
         <Main>
           <p>{vouchers.errorMessage}</p>
         </Main>
@@ -62,22 +43,7 @@ function Landing() {
   if (products.errorMessage.length > 0) {
     return (
       <Container>
-        <Nav>
-          <FirstNav>
-            <FirstSpan>Shopping</FirstSpan>
-          </FirstNav>
-          <SecondNav>
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 25,
-                backgroundColor: '#666666',
-              }}
-            />{' '}
-            <ThirdSpan>John doe</ThirdSpan>
-          </SecondNav>
-        </Nav>
+        <NavBar />
         <Main>
           <p>{products.errorMessage}</p>
         </Main>
@@ -86,22 +52,7 @@ function Landing() {
   } else {
     return (
       <Container>
-        <Nav>
-          <FirstNav>
-            <FirstSpan>Shopping</FirstSpan>
-          </FirstNav>
-          <SecondNav>
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 25,
-                backgroundColor: '#666666',
-              }}
-            />{' '}
-            <ThirdSpan>John doe</ThirdSpan>
-          </SecondNav>
-        </Nav>
+        <NavBar />
         <Main>
           <Section>
             <Box>
