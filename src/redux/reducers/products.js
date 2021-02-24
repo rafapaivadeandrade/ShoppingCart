@@ -28,7 +28,6 @@ export const getProductsSuccess = (state = INITIAL_STATE, action) => {
   };
 };
 export const getProductsFailure = (state = INITIAL_STATE, action) => {
-  console.log(action);
   return {
     ...state,
     isLoading: false,

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import ActionCreators from '../actionCreators';
 import { put, call } from 'redux-saga/effects';
 import { getProductsFromApi } from '../../data/api';

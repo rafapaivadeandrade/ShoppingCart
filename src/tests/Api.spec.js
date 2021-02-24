@@ -7,7 +7,7 @@ describe('getProducts', () => {
     axios.get = jest.fn();
   });
 
-  describe('getCharacters', () => {
+  describe('getProducts', () => {
     it('httpClient is called as expected', () => {
       getProductsFromApi();
       expect(axios.get).toHaveBeenCalledWith(
