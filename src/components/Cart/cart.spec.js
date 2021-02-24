@@ -8,24 +8,29 @@ import '@testing-library/jest-dom/extend-expect';
 describe('Cart', () => {
   const store = createStore;
   const mockProduct = { id: 1, name: 'Banana', price: 10.0, available: 10 };
+  const MockAddProduct = jest.fn();
+  const MockRemoveProduct = jest.fn();
 
-  it('should trigger the add button', () => {
+  it('should trigger the add button and add product', () => {
     const { getByTestId } = render(
       <Provider store={store}>
         <Cart product={mockProduct} />
       </Provider>
     );
-    const buyButton = getByTestId('plus');
-    fireEvent.click(buyButton);
+    const addButton = getByTestId('plus');
+    fireEvent.click(addButton);
+    // expect(MockAddProduct).toHaveBeenCalledTimes(1);
   });
-  it('should trigger the remove button', () => {
+  it('should trigger the remove button and remove product', () => {
     const { getByTestId } = render(
       <Provider store={store}>
         <Cart product={mockProduct} />
       </Provider>
     );
-    const buyButton = getByTestId('minus');
-    fireEvent.click(buyButton);
+    const removeButton = getByTestId('minus');
+    fireEvent.click(removeButton);
+    // expect(MockRemoveProduct).toHaveBeenCalled();
+    // expect(MockRemoveProduct).toHaveBeenCalledTimes(1);
   });
   it('should render a product object', () => {
     const { getByTestId } = render(

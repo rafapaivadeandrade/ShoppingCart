@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('itemsData', () => {
+  const mockAddProduct = jest.fn();
+
   const store = createStore;
   const mockProduct = {
     id: 1,
@@ -22,7 +24,9 @@ describe('itemsData', () => {
       </Provider>
     );
     const buyButton = getByText(/BUY/i);
+
     fireEvent.click(buyButton);
+    expect(mockAddProduct).toHaveBeenCalledTimes(1);
   });
   it('should render a product object', () => {
     const { getByTestId } = render(
