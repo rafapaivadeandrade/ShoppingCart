@@ -15,15 +15,7 @@ function NavBar() {
         <FirstSpan>Shopping</FirstSpan>
       </FirstNav>
       <SecondNav>
-        <Circle
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: 25,
-            backgroundColor: '#666666',
-          }}
-        />{' '}
-        <SecondSpan>John doe</SecondSpan>
+        <Circle /> <SecondSpan>John doe</SecondSpan>
       </SecondNav>
     </Nav>
   );
