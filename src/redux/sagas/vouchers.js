@@ -1,14 +1,15 @@
 import axios from 'axios';
 import ActionCreators from '../actionCreators';
-import { put } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
+import { getVouchersFromApi } from '../../data/api';
 
 export function* getVouchers() {
   try {
-    const vouchers = yield axios.get(
-      'https://shielded-wildwood-82973.herokuapp.com/vouchers.json'
-    );
-    yield put(ActionCreators.getVouchersSuccess(vouchers.data.vouchers));
+    const response = yield call(getVouchersFromApi);
+    const vouchers = response;
+
+    yield put(ActionCreators.getVouchersSuccess(vouchers));
   } catch (e) {
-    yield put(ActionCreators.getVouchersFailure(e));
+    yield put(ActionCreators.getVouchersFailure());
   }
 }

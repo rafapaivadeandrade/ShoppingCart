@@ -1,21 +1,29 @@
 import axios from 'axios';
 import ActionCreators from '../actionCreators';
-import { put } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
+import { getProductsFromApi } from '../../data/api';
 
 export function* getProducts() {
   try {
-    const products = yield axios.get(
-      'https://shielded-wildwood-82973.herokuapp.com/products.json'
-    );
-    yield put(ActionCreators.getProductsSuccess(products.data.products));
+    const response = yield call(getProductsFromApi);
+    const products = response;
+    yield put(ActionCreators.getProductsSuccess(products));
   } catch (e) {
-    yield put(ActionCreators.getProductsFailure(e));
+    yield put(ActionCreators.getProductsFailure());
   }
 }
 export function* addToCart(product) {
-  yield put(ActionCreators.addToCartSuccess(product));
+  try {
+    yield put(ActionCreators.addToCartSuccess(product));
+  } catch (e) {
+    yield put(ActionCreators.addToCartFailure());
+  }
 }
 
 export function* removeFromCart(product) {
-  yield put(ActionCreators.removeFromCartSuccess(product));
+  try {
+    yield put(ActionCreators.removeFromCartSuccess(product));
+  } catch (e) {
+    yield put(ActionCreators.removeFromCartFailure());
+  }
 }

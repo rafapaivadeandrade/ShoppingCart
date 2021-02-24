@@ -17,7 +17,7 @@ export const getVouchersSuccess = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isLoading: false,
-    vouchers: action.vouchers,
+    vouchers: action.vouchers.data.vouchers,
   };
 };
 export const getVouchersFailure = (state = INITIAL_STATE, action) => {

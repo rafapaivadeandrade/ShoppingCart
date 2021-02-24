@@ -17,7 +17,6 @@ import {
   SaveCart,
   CheckOutButton,
 } from './styles';
-import '../App.css';
 import CartDetail from '../components/CartDetails';
 import ItemsData from '../components/Items';
 import Cart from '../components/Cart';
@@ -27,8 +26,7 @@ import { useDispatch } from 'react-redux';
 import ActionCreators from '../redux/actionCreators';
 
 function Landing() {
-  const { products } = useSelector((state) => state);
-  const { vouchers } = useSelector((state) => state);
+  const { products, vouchers } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 

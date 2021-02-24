@@ -6,8 +6,7 @@ import ActionCreators from '../../redux/actionCreators';
 
 function Discount() {
   const [discount, setDiscount] = useState('');
-  const { vouchers } = useSelector((state) => state);
-  const { products } = useSelector((state) => state);
+  const { vouchers, products } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 

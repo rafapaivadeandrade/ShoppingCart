@@ -15,6 +15,6 @@ export const { Types, Creators } = createActions({
 
   getVouchersRequest: null,
   getVouchersSuccess: ['vouchers'],
-  getVouchersFailure: null,
+  getVouchersFailure: ['error'],
 });
 export default Creators;

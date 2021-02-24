@@ -21,7 +21,7 @@ function ItemsData({ product }) {
     dispatch(ActionCreators.addToCartRequest(product));
   }
   return (
-    <Items>
+    <Items data-testid="item">
       <Image></Image>
       <Label style={{ fontWeight: 'bold' }}>{product.name}</Label>
       <LabelRow>

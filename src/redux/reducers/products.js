@@ -24,10 +24,11 @@ export const getProductsSuccess = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     isLoading: false,
-    data: action.products,
+    data: action.products.data.products,
   };
 };
 export const getProductsFailure = (state = INITIAL_STATE, action) => {
+  console.log(action);
   return {
     ...state,
     isLoading: false,
