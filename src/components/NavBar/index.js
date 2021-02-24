@@ -4,7 +4,8 @@ import {
   FirstNav,
   FirstSpan,
   SecondNav,
-  ThirdSpan,
+  SecondSpan,
+  Circle,
 } from '../../page/styles';
 
 function NavBar() {
@@ -14,7 +15,7 @@ function NavBar() {
         <FirstSpan>Shopping</FirstSpan>
       </FirstNav>
       <SecondNav>
-        <div
+        <Circle
           style={{
             width: 40,
             height: 40,
@@ -22,7 +23,7 @@ function NavBar() {
             backgroundColor: '#666666',
           }}
         />{' '}
-        <ThirdSpan>John doe</ThirdSpan>
+        <SecondSpan>John doe</SecondSpan>
       </SecondNav>
     </Nav>
   );

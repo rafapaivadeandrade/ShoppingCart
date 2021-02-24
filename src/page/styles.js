@@ -20,16 +20,31 @@ export const FirstNav = styled.nav`
   margin-left: -200px;
 `;
 export const FirstSpan = styled.span`
-  font-size: 35px;
-  font-weight: bold;
-  color: #333333;
-  font-style: italic;
+  @media screen and (min-width: 480px) {
+    font-size: 35px;
+    font-weight: bold;
+    color: #333333;
+    font-style: italic;
 
-  &:hover {
-    cursor: pointer;
-    border-bottom: 5px solid #b5c401;
-    padding-bottom: 5px;
-    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 5px solid #b5c401;
+      padding-bottom: 5px;
+      border-radius: 5px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 35px;
+    font-weight: bold;
+    color: #333333;
+    font-style: italic;
+    margin-left: 120px;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 5px solid #b5c401;
+      padding-bottom: 5px;
+      border-radius: 5px;
+    }
   }
 `;
 
@@ -40,18 +55,39 @@ export const SecondNav = styled.nav`
   align-items: center;
   margin-right: -100px;
 `;
-export const ThirdSpan = styled.span`
-  font-size: 15px;
-  font-weight: bold;
-  color: #333333;
-  font-style: italic;
+export const SecondSpan = styled.span`
+  @media screen and (min-width: 480px) {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+    font-style: italic;
 
-  &:hover {
-    cursor: pointer;
-    border-bottom: 5px solid #b5c401;
-    padding-bottom: 5px;
-    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 5px solid #b5c401;
+      padding-bottom: 5px;
+      border-radius: 5px;
+    }
   }
+  @media screen and (max-width: 480px) {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+    font-style: italic;
+    margin-right: 40px;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 5px solid #b5c401;
+      padding-bottom: 5px;
+      border-radius: 5px;
+    }
+  }
+`;
+export const Circle = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: #666666;
 `;
 
 export const Main = styled.main`
@@ -89,11 +125,21 @@ export const Price = styled.div`
   }
 `;
 export const Box = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 900px;
-  margin-top: 10px;
+  @media screen and (min-width: 480px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 900px;
+    margin-top: 10px;
+  }
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 500px;
+    margin-top: 10px;
+    margin-left: 120px;
+  }
 `;
 export const Items = styled.div`
   box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.2);
@@ -170,9 +216,18 @@ export const CartImage = styled.img`
   border-bottom-left-radius: 8px;
 `;
 export const Aside = styled.aside`
-  width: 300px;
-  height: 400px;
-  border-radius: 8px;
+  @media screen and (min-width: 480px) {
+    width: 300px;
+    height: 400px;
+    border-radius: 8px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-top: 600px;
+    width: 300px;
+    height: 400px;
+    border-radius: 8px;
+    margin-right: 200px;
+  }
 `;
 export const CartContainer = styled.div`
   background-color: #d8d8d8;
@@ -180,7 +235,6 @@ export const CartContainer = styled.div`
   height: 200px;
   display: flex;
   flex-direction: column;
-  /* border: 1px solid #e0dde5; */
   overflow-y: auto;
 `;
 export const DiscountContainer = styled.div`
