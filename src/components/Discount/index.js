@@ -24,6 +24,7 @@ function Discount() {
   return (
     <DiscountContainer>
       <Input
+        aria-label="Discount"
         placeholder="Discount code"
         onChange={(e) => setDiscount(e.target.value)}
         value={discount}

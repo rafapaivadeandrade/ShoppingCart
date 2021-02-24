@@ -4,14 +4,13 @@ import ItemsData from './index';
 import createStore from '../../redux/index';
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom/extend-expect';
-import user from '@testing-library/user-event';
 
 describe('itemsData', () => {
   const store = createStore;
   const mockProduct = { id: 1, name: 'Banana', price: 10.0, available: 10 };
 
   it('should display the buy button', () => {
-    const { getByText, debug } = render(
+    const { getByText } = render(
       <Provider store={store}>
         <ItemsData product={mockProduct} />
       </Provider>
@@ -20,7 +19,7 @@ describe('itemsData', () => {
     fireEvent.click(buyButton);
   });
   it('should render a product object', () => {
-    const { debug, getByTestId } = render(
+    const { getByTestId } = render(
       <Provider store={store}>
         <ItemsData product={mockProduct} />
       </Provider>
