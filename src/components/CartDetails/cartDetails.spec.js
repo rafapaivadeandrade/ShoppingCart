@@ -5,7 +5,7 @@ import createStore from '../../redux/index';
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom/extend-expect';
 
-describe('itemsData', () => {
+describe('cartDetail', () => {
   const store = createStore;
 
   it('should render Cart Details Component', () => {

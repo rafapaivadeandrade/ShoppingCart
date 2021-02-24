@@ -7,9 +7,15 @@ import '@testing-library/jest-dom/extend-expect';
 
 describe('itemsData', () => {
   const store = createStore;
-  const mockProduct = { id: 1, name: 'Banana', price: 10.0, available: 10 };
+  const mockProduct = {
+    id: 1,
+    name: 'Banana',
+    price: 10.0,
+    available: 10,
+    left: 0,
+  };
 
-  it('should display the buy button', () => {
+  it('should trigger the buy button', () => {
     const { getByText } = render(
       <Provider store={store}>
         <ItemsData product={mockProduct} />
@@ -26,5 +32,8 @@ describe('itemsData', () => {
     );
     const Item = getByTestId('item');
     expect(Item).toHaveTextContent(mockProduct.name);
+    expect(Item).toHaveTextContent(mockProduct.price);
+    expect(Item).toHaveTextContent(mockProduct.available);
+    expect(Item).toHaveTextContent(mockProduct.left);
   });
 });

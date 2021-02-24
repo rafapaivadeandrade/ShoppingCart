@@ -1,14 +1,21 @@
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import '../setupTests';
-import App from '../App';
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import Landing from './index';
 import createStore from '../redux/index';
+import { Provider } from 'react-redux';
+import '@testing-library/jest-dom/extend-expect';
 
-configure({ adapter: new Adapter() });
-describe('Landing', () => {
+describe('landing', () => {
   const store = createStore;
-  const wrapper = shallow(<App store={store} />);
-  it('should render landing page correctly', () => {
-    expect(wrapper).toMatchSnapshot();
+
+  it('should render Landing Component', () => {
+    const result = render(
+      <Provider store={store}>
+        <Landing />
+      </Provider>
+    );
+
+    expect(result).toMatchSnapshot();
+    expect(result).toBeTruthy();
   });
 });

@@ -39,7 +39,7 @@ function Cart({ product }) {
   }
 
   return (
-    <CartItems key={product.id}>
+    <CartItems key={product.id} data-testid="item">
       <CartImage />
       <CartDetails>
         <CartName>
@@ -51,8 +51,12 @@ function Cart({ product }) {
         </CartQntPrice>
       </CartDetails>
       <Buttons>
-        <AddButton onClick={() => countValue(product.id)}>+</AddButton>
-        <RemoveButton onClick={() => reduction(product.id)}>-</RemoveButton>
+        <AddButton onClick={() => countValue(product.id)} data-testid="plus">
+          +
+        </AddButton>
+        <RemoveButton onClick={() => reduction(product.id)} data-testid="minus">
+          -
+        </RemoveButton>
       </Buttons>
     </CartItems>
   );
