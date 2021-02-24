@@ -42,6 +42,7 @@ export const addToCartRequest = (state = INITIAL_STATE, action) => {
   };
 };
 export const addToCartSuccess = (state = INITIAL_STATE, action) => {
+  //IF DISCOUNT WAS ADDED THEN CALCULATE THE DISCOUNT
   if (action.product.product.type === 'percentual') {
     state.discount = (state.subtotal * action.product.product.amount) / 100;
     state.subtotal = state.subtotal - state.discount;
@@ -105,98 +106,100 @@ export const addToCartSuccess = (state = INITIAL_STATE, action) => {
         total: state.total,
       };
     }
-  } else {
-    var repeatedProduct = state.cart.find(
-      (p) => p.id === action.product.product.id
-    );
-    if (repeatedProduct) {
-      var product = action.product.product;
-      let count = 1;
-      product.count += count;
-      if (product.count <= product.available) {
-        state.subtotal += product.price;
-        state.kilograms += 1;
+  }
+  var repeatedProduct = state.cart.find(
+    (p) => p.id === action.product.product.id
+  );
+  //IF THE PRODUCT WAS ALREADY ADDED TO THE CART, CALCULATE THE COSTS AND KILOGRAMS
+  if (repeatedProduct) {
+    var product = action.product.product;
+    let count = 1;
+    product.count += count;
+    if (product.count <= product.available) {
+      state.subtotal += product.price;
+      state.kilograms += 1;
 
-        if (state.kilograms <= 10) {
-          state.shipping = 30;
-        } else {
-          if (state.kilograms > 10 && state.kilograms % 5 === 0)
-            state.shipping += 7;
-        }
-        if (state.subtotal > 400) state.shipping = 0;
-
-        product.left = product.available - product.count;
-        if (product.count > product.available) {
-          product.left = 0;
-          product.count = product.available;
-          state.kilograms -= 1;
-          if (state.kilograms < 0) state.kilograms = 0;
-        }
-        state.total = state.subtotal + state.shipping;
-        return {
-          ...state,
-          isDiscounted: false,
-          cart: [...state.cart],
-          subtotal: state.subtotal,
-          kilograms: state.kilograms,
-          shipping: state.shipping,
-        };
+      if (state.kilograms <= 10) {
+        state.shipping = 30;
       } else {
-        product.count = product.available;
-        return {
-          ...state,
-          isDiscounted: false,
-          cart: [...state.cart],
-          subtotal: state.subtotal,
-          kilograms: state.kilograms,
-          shipping: state.shipping,
-        };
+        if (state.kilograms > 10 && state.kilograms % 5 === 0)
+          state.shipping += 7;
       }
+      if (state.subtotal > 400) state.shipping = 0;
+
+      product.left = product.available - product.count;
+      if (product.count > product.available) {
+        product.left = 0;
+        product.count = product.available;
+        state.kilograms -= 1;
+        if (state.kilograms < 0) state.kilograms = 0;
+      }
+      state.total = state.subtotal + state.shipping;
+      return {
+        ...state,
+        isDiscounted: false,
+        cart: [...state.cart],
+        subtotal: state.subtotal,
+        kilograms: state.kilograms,
+        shipping: state.shipping,
+      };
     } else {
-      var product = action.product.product;
-      let count = 1;
-      product.count = count;
-      if (product.count <= product.available) {
-        state.subtotal += product.price;
-        state.kilograms += 1;
+      product.count = product.available;
+      return {
+        ...state,
+        isDiscounted: false,
+        cart: [...state.cart],
+        subtotal: state.subtotal,
+        kilograms: state.kilograms,
+        shipping: state.shipping,
+      };
+    }
+  }
+  //IF THE PRODUCT WAS NOT ALREADY ADDED TO THE CART, CALCULATE THE COSTS AND KILOGRAMS
+  else {
+    var product = action.product.product;
+    let count = 1;
+    product.count = count;
+    if (product.count <= product.available) {
+      state.subtotal += product.price;
+      state.kilograms += 1;
 
-        if (state.kilograms <= 10) {
-          state.shipping = 30;
-        } else {
-          if (state.kilograms > 10 && state.kilograms % 5 === 0)
-            state.shipping += 7;
-        }
-        if (state.subtotal > 400) state.shipping = 0;
-
-        product.left = product.available - count;
-
-        if (product.count > product.available) {
-          product.left = 0;
-          product.count = product.available;
-          state.kilograms -= 1;
-          if (state.kilograms < 0) state.kilograms = 0;
-        }
-        state.total = state.subtotal + state.shipping;
-        return {
-          ...state,
-          isDiscounted: false,
-          cart: [...state.cart, product],
-          subtotal: state.subtotal,
-          kilograms: state.kilograms,
-          shipping: state.shipping,
-          total: state.total,
-        };
+      if (state.kilograms <= 10) {
+        state.shipping = 30;
       } else {
-        product.count = product.available;
-        return {
-          ...state,
-          isDiscounted: false,
-          cart: [...state.cart],
-          subtotal: state.subtotal,
-          kilograms: state.kilograms,
-          shipping: state.shipping,
-        };
+        if (state.kilograms > 10 && state.kilograms % 5 === 0)
+          state.shipping += 7;
       }
+      if (state.subtotal > 400) state.shipping = 0;
+
+      product.left = product.available - count;
+
+      if (product.count > product.available) {
+        product.left = 0;
+        product.count = product.available;
+        state.kilograms -= 1;
+        if (state.kilograms < 0) state.kilograms = 0;
+      }
+      state.total = state.subtotal + state.shipping;
+      return {
+        ...state,
+        isDiscounted: false,
+        cart: [...state.cart, product],
+        subtotal: state.subtotal,
+        kilograms: state.kilograms,
+        shipping: state.shipping,
+        total: state.total,
+      };
+    } else {
+      product.count = product.available;
+      return {
+        ...state,
+        isDiscounted: false,
+        cart: [...state.cart],
+        subtotal: state.subtotal,
+        kilograms: state.kilograms,
+        shipping: state.shipping,
+      };
     }
   }
 };

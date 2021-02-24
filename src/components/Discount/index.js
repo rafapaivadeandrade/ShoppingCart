@@ -15,6 +15,7 @@ function Discount() {
   }, []);
 
   function getDiscount() {
+    console.log(products.isDiscounted);
     vouchers.vouchers.forEach((voucher) => {
       if (voucher.code === discount) {
         dispatch(ActionCreators.addToCartRequest(voucher));
