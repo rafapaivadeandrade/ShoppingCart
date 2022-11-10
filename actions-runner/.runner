@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "LAPTOP-TAQ38GDJ",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/HzRW1r1FkkeUIWyOTfCIygoiBtxVx8FkqkXBPz6LlLx8clxhqf",
+  "gitHubUrl": "https://github.com/rafapaivadeandrade/ShoppingCart",
+  "workFolder": "_work"
+}
