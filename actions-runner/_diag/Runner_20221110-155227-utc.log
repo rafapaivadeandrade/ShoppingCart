@@ -1,0 +1,182 @@
+[2022-11-10 15:52:27Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-11-10 15:52:27Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:27Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:27Z INFO HostContext] Well known config file 'Credentials': 'D:\React_Projects\ShoppingCart\actions-runner\.credentials'
+[2022-11-10 15:52:27Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:27Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:27Z INFO HostContext] Well known config file 'Runner': 'D:\React_Projects\ShoppingCart\actions-runner\.runner'
+[2022-11-10 15:52:27Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2022-11-10 15:52:27Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.22621.
+[2022-11-10 15:52:28Z INFO Listener] Version: 2.298.2
+[2022-11-10 15:52:28Z INFO Listener] Commit: f49f0247c8f15ef51086a7c2405333cb91c6f3cd
+[2022-11-10 15:52:28Z INFO Listener] Culture: en-CA
+[2022-11-10 15:52:28Z INFO Listener] UI Culture: en-US
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO Listener] Validating directory permissions for: 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO CommandLineParser] Parse
+[2022-11-10 15:52:28Z INFO CommandLineParser] Parsing 1 args
+[2022-11-10 15:52:28Z INFO CommandLineParser] parsing argument
+[2022-11-10 15:52:28Z INFO CommandLineParser] HasArgs: False
+[2022-11-10 15:52:28Z INFO CommandLineParser] Adding Command: run
+[2022-11-10 15:52:28Z INFO Listener] Arguments parsed
+[2022-11-10 15:52:28Z INFO Runner] ExecuteCommand
+[2022-11-10 15:52:28Z INFO ConfigurationStore] currentAssemblyLocation: D:\React_Projects\ShoppingCart\actions-runner\bin\Runner.Listener.dll
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO ConfigurationStore] binPath: D:\React_Projects\ShoppingCart\actions-runner\bin
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO ConfigurationStore] RootFolder: D:\React_Projects\ShoppingCart\actions-runner
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO HostContext] Well known config file 'Runner': 'D:\React_Projects\ShoppingCart\actions-runner\.runner'
+[2022-11-10 15:52:28Z INFO ConfigurationStore] ConfigFilePath: D:\React_Projects\ShoppingCart\actions-runner\.runner
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO HostContext] Well known config file 'Credentials': 'D:\React_Projects\ShoppingCart\actions-runner\.credentials'
+[2022-11-10 15:52:28Z INFO ConfigurationStore] CredFilePath: D:\React_Projects\ShoppingCart\actions-runner\.credentials
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO HostContext] Well known config file 'MigratedCredentials': 'D:\React_Projects\ShoppingCart\actions-runner\.credentials_migrated'
+[2022-11-10 15:52:28Z INFO ConfigurationStore] MigratedCredFilePath: D:\React_Projects\ShoppingCart\actions-runner\.credentials_migrated
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO HostContext] Well known config file 'Service': 'D:\React_Projects\ShoppingCart\actions-runner\.service'
+[2022-11-10 15:52:28Z INFO ConfigurationStore] ServiceConfigFilePath: D:\React_Projects\ShoppingCart\actions-runner\.service
+[2022-11-10 15:52:28Z INFO CommandSettings] Flag 'help': 'False'
+[2022-11-10 15:52:28Z INFO CommandSettings] Flag 'version': 'False'
+[2022-11-10 15:52:28Z INFO CommandSettings] Flag 'commit': 'False'
+[2022-11-10 15:52:28Z INFO CommandSettings] Flag 'check': 'False'
+[2022-11-10 15:52:28Z INFO CommandSettings] Command 'configure': 'False'
+[2022-11-10 15:52:28Z INFO CommandSettings] Command 'remove': 'False'
+[2022-11-10 15:52:28Z INFO CommandSettings] Command 'warmup': 'False'
+[2022-11-10 15:52:28Z INFO ConfigurationManager] LoadSettings
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsConfigured()
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsConfigured: True
+[2022-11-10 15:52:28Z INFO ConfigurationManager] Is configured: True
+[2022-11-10 15:52:28Z INFO ConfigurationStore] Read setting file: 311 chars
+[2022-11-10 15:52:28Z INFO ConfigurationManager] Settings Loaded
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-11-10 15:52:28Z INFO CommandSettings] Command 'run': 'True'
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsConfigured()
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsConfigured: True
+[2022-11-10 15:52:28Z INFO ConfigurationManager] Is configured: True
+[2022-11-10 15:52:28Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2022-11-10 15:52:28Z INFO Runner] Set runner startup type - Manual
+[2022-11-10 15:52:28Z INFO CommandSettings] Flag 'once': 'False'
+[2022-11-10 15:52:28Z INFO CommandSettings] Flag 'once': 'False'
+[2022-11-10 15:52:28Z INFO Runner] RunAsync
+[2022-11-10 15:52:28Z INFO ConfigurationManager] LoadSettings
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsConfigured()
+[2022-11-10 15:52:28Z INFO ConfigurationStore] IsConfigured: True
+[2022-11-10 15:52:28Z INFO ConfigurationManager] Is configured: True
+[2022-11-10 15:52:28Z INFO ConfigurationManager] Settings Loaded
+[2022-11-10 15:52:28Z INFO MessageListener] {
+  "AgentId": 2,
+  "AgentName": "LAPTOP-TAQ38GDJ",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelines.actions.githubusercontent.com/HzRW1r1FkkeUIWyOTfCIygoiBtxVx8FkqkXBPz6LlLx8clxhqf",
+  "GitHubUrl": "https://github.com/rafapaivadeandrade/ShoppingCart",
+  "WorkFolder": "_work"
+}
+[2022-11-10 15:52:28Z INFO MessageListener] Loading Credentials
+[2022-11-10 15:52:28Z INFO ConfigurationStore] HasCredentials()
+[2022-11-10 15:52:28Z INFO ConfigurationStore] stored True
+[2022-11-10 15:52:28Z INFO CredentialManager] GetCredentialProvider
+[2022-11-10 15:52:28Z INFO CredentialManager] Creating type OAuth
+[2022-11-10 15:52:28Z INFO CredentialManager] Creating credential type: OAuth
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:28Z INFO HostContext] Well known directory 'Root': 'D:\React_Projects\ShoppingCart\actions-runner'
+[2022-11-10 15:52:28Z INFO HostContext] Well known config file 'RSACredentials': 'D:\React_Projects\ShoppingCart\actions-runner\.credentials_rsaparams'
+[2022-11-10 15:52:28Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\React_Projects\ShoppingCart\actions-runner\.credentials_rsaparams
+[2022-11-10 15:52:28Z INFO MessageListener] Attempt to create session.
+[2022-11-10 15:52:28Z INFO MessageListener] Connecting to the Runner Server...
+[2022-11-10 15:52:28Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2022-11-10 15:52:28Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-11-10 15:52:28Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-11-10 15:52:28Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-11-10 15:52:28Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2022-11-10 15:52:28Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-11-10 15:52:29Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-11-10 15:52:29Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-11-10 15:52:29Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-11-10 15:52:29Z INFO MessageListener] VssConnection created
+[2022-11-10 15:52:29Z INFO Terminal] WRITE LINE: 
+[2022-11-10 15:52:29Z INFO Terminal] WRITE LINE: 
+[2022-11-10 15:52:30Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\React_Projects\ShoppingCart\actions-runner\.credentials_rsaparams
+[2022-11-10 15:52:30Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\React_Projects\ShoppingCart\actions-runner\.credentials_rsaparams
+[2022-11-10 15:52:31Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2022-11-10 15:52:31Z INFO MessageListener] Session created.
+[2022-11-10 15:52:31Z INFO Terminal] WRITE LINE: Current runner version: '2.298.2'
+[2022-11-10 15:52:31Z INFO Terminal] WRITE LINE: 2022-11-10 15:52:31Z: Listening for Jobs
+[2022-11-10 15:52:31Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2022-11-10 15:52:35Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\React_Projects\ShoppingCart\actions-runner\.credentials_rsaparams
+[2022-11-10 15:52:35Z INFO MessageListener] Message '6' received from session '94010138-d489-438d-86c2-2f77757f3865'.
+[2022-11-10 15:52:35Z INFO Runner] Received job message of length 22336 from service, with hash 'c3fbe1126ce4737b13e6ba3b39856988ae9992546746f1f4e5543c9833d69c3c'
+[2022-11-10 15:52:35Z INFO JobDispatcher] Job request 5 for plan 865c01ce-564b-421a-9f96-bf2750477105 job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4 received.
+[2022-11-10 15:52:35Z INFO JobDispatcher] Pull OrchestrationId 865c01ce-564b-421a-9f96-bf2750477105.build._14_x from JWT claims
+[2022-11-10 15:52:35Z INFO Terminal] WRITE LINE: 2022-11-10 15:52:35Z: Running job: build (14.x)
+[2022-11-10 15:52:35Z INFO JobDispatcher] Start renew job request 5 for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4.
+[2022-11-10 15:52:36Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:02:38 PM
+[2022-11-10 15:52:36Z INFO HostContext] Well known directory 'Bin': 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper] Starting process:
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   File name: 'D:\React_Projects\ShoppingCart\actions-runner\bin\Runner.Worker.exe'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2256 2268'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Working directory: 'D:\React_Projects\ShoppingCart\actions-runner\bin'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-11-10 15:52:36Z INFO ProcessInvokerWrapper] Process started with process id 15080, waiting for process exit.
+[2022-11-10 15:52:36Z INFO JobDispatcher] Send job request message to worker for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4.
+[2022-11-10 15:52:36Z INFO ProcessChannel] Sending message of length 22336, with hash 'c3fbe1126ce4737b13e6ba3b39856988ae9992546746f1f4e5543c9833d69c3c'
+[2022-11-10 15:52:36Z INFO JobNotification] Entering JobStarted Notification
+[2022-11-10 15:52:36Z INFO JobNotification] Entering StartMonitor
+[2022-11-10 15:53:36Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:03:39 PM
+[2022-11-10 15:54:36Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:04:39 PM
+[2022-11-10 15:55:37Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:05:39 PM
+[2022-11-10 15:56:37Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:06:40 PM
+[2022-11-10 15:57:38Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:07:40 PM
+[2022-11-10 15:58:38Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:08:40 PM
+[2022-11-10 15:59:38Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:09:41 PM
+[2022-11-10 16:00:39Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:10:41 PM
+[2022-11-10 16:01:39Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:11:41 PM
+[2022-11-10 16:02:39Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:12:41 PM
+[2022-11-10 16:03:40Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:13:42 PM
+[2022-11-10 16:04:40Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:14:42 PM
+[2022-11-10 16:05:40Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:15:43 PM
+[2022-11-10 16:06:41Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:16:43 PM
+[2022-11-10 16:07:41Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 2022-11-10 4:17:43 PM
+[2022-11-10 16:08:33Z INFO Terminal] WRITE LINE: Exiting...
+[2022-11-10 16:08:33Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-11-10 16:08:33Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-11-10 16:08:33Z INFO HostContext] Runner will be shutdown for UserCancelled
+[2022-11-10 16:08:34Z INFO Terminal] WRITE LINE: Exiting...
+[2022-11-10 16:08:34Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-11-10 16:08:34Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-11-10 16:08:34Z INFO HostContext] Runner will be shutdown for UserCancelled
+[2022-11-10 16:08:34Z INFO Terminal] WRITE LINE: Exiting...
+[2022-11-10 16:08:34Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-11-10 16:08:34Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-11-10 16:08:34Z INFO HostContext] Runner will be shutdown for UserCancelled
+[2022-11-10 16:08:34Z WARN GitHubActionsService] GET request to https://pipelines.actions.githubusercontent.com/HzRW1r1FkkeUIWyOTfCIygoiBtxVx8FkqkXBPz6LlLx8clxhqf/_apis/distributedtask/pools/1/messages?sessionId=94010138-d489-438d-86c2-2f77757f3865&lastMessageId=6&status=Online has been cancelled.
+[2022-11-10 16:08:34Z INFO MessageListener] Get next message has been cancelled.
+[2022-11-10 16:08:34Z INFO JobDispatcher] Shutting down JobDispatcher. Make sure all WorkerDispatcher has finished.
+[2022-11-10 16:08:34Z INFO JobDispatcher] Ensure WorkerDispather for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4 run to finish, cancel any running job.
+[2022-11-10 16:08:34Z INFO JobDispatcher] Send job cancellation message to worker for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4.
+[2022-11-10 16:08:34Z INFO ProcessChannel] Sending message of length 0, with hash 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+[2022-11-10 16:08:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-11-10 16:08:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-11-10 16:08:38Z INFO ProcessInvokerWrapper] Finished process 15080 with exit code 102, and elapsed time 00:16:02.3239454.
+[2022-11-10 16:08:38Z INFO JobDispatcher] finish job request for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4 with result: Canceled
+[2022-11-10 16:08:38Z INFO Terminal] WRITE LINE: 2022-11-10 16:08:38Z: Job build (14.x) completed with result: Canceled
+[2022-11-10 16:08:38Z INFO JobDispatcher] Stop renew job request for job 006c7e6f-00a1-57ff-4d9c-5871960fc9e4.
+[2022-11-10 16:08:38Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 5.
+[2022-11-10 16:08:38Z INFO JobNotification] Entering JobCompleted Notification
+[2022-11-10 16:08:38Z INFO JobNotification] Entering EndMonitor
+[2022-11-10 16:08:39Z INFO Listener] Runner execution been cancelled.
