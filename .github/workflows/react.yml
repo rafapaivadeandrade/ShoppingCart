@@ -25,14 +25,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i
-    - run: npm test
     - run: npm run build
-      - name: Copy build files
-        run: mv ./build ./release/build
-      - name: release content
-        run: pwd && ls -la ./release
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: build
-          path: ./release
+    - name: Copy build files
+      run: mv ./build ./release/build
+    - name: release content
+      run: pwd && ls -la ./release
+    - name: Archive Production Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: build
+        path: ./release
