@@ -10,7 +10,7 @@ on:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -27,4 +27,14 @@ jobs:
     - run: npm i
     - run: npm test
     - run: npm run build
-    - run: ShoppingCart/build
+    env:
+          CI: false
+      - name: Copy build files
+        run: mv ./build ./release/build
+      - name: release content
+        run: pwd && ls -la ./release
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: build
+          path: ./release
