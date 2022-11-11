@@ -27,8 +27,6 @@ jobs:
     - run: npm i
     - run: npm test
     - run: npm run build
-    env:
-          CI: false
       - name: Copy build files
         run: mv ./build ./release/build
       - name: release content
